@@ -1,0 +1,63 @@
+.blog-Card-ctn {
+  width: 350px;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden; /* Ensures image corners are rounded */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  margin-top: 50px;
+  font-family: sans-serif;
+}
+
+.hero-card-img {
+  width: 100%;
+  height: 200px;
+  object-fit: fill;
+}
+
+.card-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Pushes button to bottom if heights vary */
+}
+
+.card-content h2 {
+  font-size: 20px;
+  margin-bottom: 8px;
+  line-height: 1.4;
+  color: #1a1a1a;
+}
+
+.card-author {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #333;
+}
+
+.card-description {
+  font-size: 15px;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.read-more-btn {
+  margin-top: auto; /* Pushes button to the very bottom */
+  width: 100%;
+  padding: 12px;
+  background-color: #7499ff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.read-more-btn:hover {
+  background-color: #5d82e8;
+}

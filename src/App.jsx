@@ -4,13 +4,15 @@ import Register from "./Pages/Register";
 import Home from "./Pages/Home";
 import Login from "./Pages/Login";
 import Blog from "./Pages/Blog";
+import SignupPage from "./Pages/SignupPage";
+import LoginPage from "./Pages/LoginPage";
 
 const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/" element={<LoginPage />} />
+        <Route path="/register" element={<SignupPage />} />
         <Route path="/home" element={<Home />} />
         <Route path="/about" element={<Home />} />
         <Route path="/product" element={<Home />} />
@@ -18,6 +20,8 @@ const App = () => {
         <Route path="/blog" element={<Blog />} />
         <Route path="/chart" element={<Home />} />
         <Route path="/profile" element={<Home />} />
+        <Route path="/contact" element={<Home />} />
+        <Route path="/contact" element={<Home />} />
         <Route path="/contact" element={<Home />} />
       </Routes>
     </BrowserRouter>

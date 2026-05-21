@@ -1,0 +1,120 @@
+.header {
+  width: 100%;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white; /* Changed from green to match image */
+  position: fixed;
+  top: 0;
+  left: 0;
+  font-family: sans-serif;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: add shadow */
+
+  .header-Wrapper {
+    width: 90%;
+    height: 100%;
+    display: flex;
+    /* background-color: gold; */
+    align-items: center;
+    justify-content: space-between;
+
+    .header-left-logo {
+      font-weight: bold;
+      font-size: 24px;
+      height: 100%;
+      width: 20%;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        height: 70px;
+        width: 70px;
+      }
+    }
+
+    .header-center {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+      height: 100%;
+      width: 60%;
+      justify-content: center;
+
+      .nav-item {
+        position: relative;
+        cursor: pointer;
+        padding: 10px;
+      }
+
+      .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        height: inherit;
+        background: white;
+        width: 230px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        border-radius: 4px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        /* padding: 10px; */
+        z-index: 1000;
+      }
+
+      .dropdown-item {
+        height: 40px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        font-size: 16px;
+        color: #333;
+      }
+
+      .dropdown-item:hover {
+        background-color: #7499ff;
+      }
+
+      span {
+        font-size: 15px;
+        font-weight: 350;
+        cursor: pointer;
+      }
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      height: 100%;
+      width: 30%;
+      justify-content: flex-end;
+
+      .Profile-Bar {
+        width: 120px;
+        height: 40px;
+        background-color: #7499ff; /* Updated to match blue */
+        color: white;
+        border-radius: 8px;
+        font-weight: 600;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        cursor: pointer;
+      }
+
+      .nav-icon {
+        font-size: 20px;
+        cursor: pointer;
+        color: #333;
+      }
+    }
+  }
+}
