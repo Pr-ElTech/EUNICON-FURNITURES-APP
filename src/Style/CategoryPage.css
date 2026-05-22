@@ -1,22 +1,35 @@
-/* Base Layout Wrapper */
+/* Update your base layout wrapper */
 .category-page {
   width: 100%;
-  padding: 0px 0px 40px 0px; /* Top matches flush layout, sides padded via items wrapper */
+  /* Add top padding equal to your header's height (e.g., 80px) 
+     so the fixed header doesn't overlap the content initially */
+  padding: 80px 0px 40px 0px;
   box-sizing: border-box;
 }
 
-/* Base Error Screen styling */
-.error-container {
-  text-align: center;
-  padding: 80px;
-  font-family: sans-serif;
+/* --- Fixed Header Setup --- 
+   Apply this to your navigation bar container inside <HeroHeader /> 
+*/
+.hero-header-container,
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px; /* Match this with your header's actual height */
+  z-index: 100; /* Keeps it above everything else, including the hero text overlay */
+  background-color: #ffffff; /* Make sure it has a background color so content doesn't bleed through */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Optional: adds clean depth when scrolling */
 }
 
-/* --- Hero Banner Section --- */
+/* --- Fix for the Hero Image Position --- 
+   Change .hero-image back to position: absolute so it stays fully contained 
+   inside the .category-hero container and doesn't push down the text.
+*/
 .category-hero {
   position: relative;
   width: 100%;
-  height: 500px; /* Adjust banner thickness to match your hero image display preference */
+  height: 500px;
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -24,13 +37,13 @@
 }
 
 .hero-image {
-  position: absolute;
+  position: absolute; /* Keeps it as a background behind the text */
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  z-index: 1;
+  object-fit: fill; /* 'cover' works much better than 'fill' to keep image proportions clean */
+  /* z-index: 1; */
 }
 
 .hero-text-container {
@@ -43,6 +56,7 @@
   color: #ffffff;
 }
 
+/* --- Rest of your original clean Flexbox styles --- */
 .back-arrow {
   font-size: 45px;
   color: #ffffff;
@@ -56,7 +70,6 @@
   margin: 0;
 }
 
-/* --- Subsection Header --- */
 .heading-container {
   display: flex;
   justify-content: center;
@@ -72,22 +85,26 @@
   margin: 0;
 }
 
-/* --- Product Items Row Grid Setup via Pure Flex --- */
 .products-flex-wrapper {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center; /* Centers your cards row globally on screen */
-  gap: 40px; /* Even spatial distribution between individual product cards */
+  justify-content: center;
+  gap: 40px;
   padding: 0 5%;
   width: 100%;
   box-sizing: border-box;
 }
 
-/* If you need an empty feedback message element style */
 .no-items {
   font-size: 18px;
   color: #777777;
   width: 100%;
   text-align: center;
+}
+
+.error-container {
+  text-align: center;
+  padding: 80px;
+  font-family: sans-serif;
 }
