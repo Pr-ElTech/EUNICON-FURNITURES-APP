@@ -1,24 +1,27 @@
 import React from "react";
 import "../Style/Footer.css";
 import fileLogo from "../assets/EuniconPrjLogo.png";
-import { footerElement  } from "../JS/Footer"; // Ensure path is correct
+import { footerElement } from "../JS/Footer"; // Ensure path is correct
 import { FooterColumn } from "./FooterColumn";
-import { FaYoutube, FaPinterest, FaTwitter, FaFacebook, FaInstagram } from "react-icons/fa";
+import {
+  FaYoutube,
+  FaPinterest,
+  FaTwitter,
+  FaFacebook,
+  FaInstagram,
+} from "react-icons/fa";
 import BlogBtn from "./BlogBtn";
-import { FaXTwitter } from "react-icons/fa6";
-
 
 const HeroFooter = () => {
   return (
     <footer className="footer">
       <section className="footer-wrapper">
-
         <article className="footer-top">
           <div className="footer-left">
             <img src={fileLogo} alt="EUNICON" className="footer-logo" />
             <div className="Link-icons-ctn">
-              <FaYoutube className="icons" /> <FaPinterest className="icons"t /> <FaXTwitter className="icons" /> <FaFacebook className="icons" />{" "}
-              <FaInstagram className="icons" />
+              <FaYoutube /> <FaPinterest /> <FaTwitter /> <FaFacebook />{" "}
+              <FaInstagram />
             </div>
           </div>
 
@@ -39,10 +42,6 @@ const HeroFooter = () => {
               <BlogBtn className="subscribe-btn" text="Subscribe" />
             </div>
           </div>
-        </article>
-
-        <article className="footer-bottom">
-          <p>Copyright © 2026 Eunicon. All rights reserved.</p>
         </article>
       </section>
     </footer>
