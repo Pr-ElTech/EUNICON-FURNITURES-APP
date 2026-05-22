@@ -2,6 +2,7 @@ import React from "react";
 import "../Style/Blog.css";
 import BlogHero from "../Components/BlogHero";
 import HeroHeader from "../Components/HeroHeader";
+import HeroFooter from "../Components/HeroFooter";
 
 const Blog = () => {
   return (
@@ -11,7 +12,7 @@ const Blog = () => {
         <article className="blog-Page-mainPage">
           <BlogHero />
         </article>
-        <article className="blog-Page-footer">{/* Footer content */}</article>
+        <HeroFooter />
       </div>
     </section>
   );

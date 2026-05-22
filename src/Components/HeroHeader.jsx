@@ -1,11 +1,14 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import "../Style/HeaderHero.css";
 import { headerMiddle } from "../JS/Header";
 import EuniconPrjLogo from "../Assets/EuniconPrjLogo.png";
-import { FaUser, FaSearch, FaHeart, FaShoppingCart } from "react-icons/fa";
+import { CiHeart, CiSearch, CiUser } from "react-icons/ci";
+import { BsCart2 } from "react-icons/bs";
 
 const HeroHeader = () => {
   const [openDropdown, setOpenDropdown] = useState(null);
+  const navigate = useNavigate(); // Initialize navigation function
 
   return (
     <div className="header">
@@ -26,9 +29,14 @@ const HeroHeader = () => {
 
               {item.categories && openDropdown === item.id && (
                 <div className="dropdown-menu">
-                  {item.categories.map((sub, i) => (
-                    <div key={i} className="dropdown-item">
-                      {sub}
+                  {item.categories.map((sub) => (
+                    <div
+                      key={sub.id}
+                      className="dropdown-item"
+                      // Navigate to the unique id path on click
+                      onClick={() => navigate(`/category/${sub.id}`)}
+                    >
+                      {sub.name}
                     </div>
                   ))}
                 </div>
@@ -39,9 +47,9 @@ const HeroHeader = () => {
 
         <div className="header-right">
           <div className="Profile-Bar">
-            <FaUser /> Peculiar
+            <CiUser /> Peculiar
           </div>
-          <FaSearch /> <FaHeart /> <FaShoppingCart />
+          <CiSearch /> <CiHeart /> <BsCart2 />
         </div>
       </section>
     </div>
