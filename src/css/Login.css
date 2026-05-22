@@ -1,0 +1,39 @@
+.create_account_container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.account_form {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.account_form h1 {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.account_form input {
+  padding: 15px;
+  border: 2px solid #888;
+  border-radius: 12px;
+  font-size: 16px;
+  outline: none;
+}
+
+.account_form button {
+  width: 180px;
+  padding: 15px;
+  margin: auto;
+  border: none;
+  border-radius: 10px;
+  background-color: #6ea8ff;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+}
