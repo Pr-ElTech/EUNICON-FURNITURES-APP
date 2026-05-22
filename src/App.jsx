@@ -4,9 +4,7 @@ import Register from "./Pages/Register";
 import Home from "./Pages/Home";
 import Login from "./Pages/Login";
 import Blog from "./Pages/Blog";
-import SignupPage from "./Pages/SignupPage";
-import LoginPage from "./Pages/LoginPage";
-import CategoryPage from "./Pages/CategoryPage";
+import About from "./Pages/About";
 
 const App = () => {
   return (
@@ -15,7 +13,7 @@ const App = () => {
         <Route path="/" element={<LoginPage />} />
         <Route path="/register" element={<SignupPage />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/about" element={<Home />} />
+        <Route path="/about" element={<About />} />
         <Route path="/product" element={<Home />} />
         <Route path="/services" element={<Home />} />
         <Route path="/blog" element={<Blog />} />
@@ -24,8 +22,12 @@ const App = () => {
         <Route path="/category/:categoryId" element={<CategoryPage />} />{" "}
         <Route path="/contact" element={<Home />} />
         <Route path="/contact" element={<Home />} />
+
       </Routes>
     </BrowserRouter>
+
+
+
   );
 };
 
