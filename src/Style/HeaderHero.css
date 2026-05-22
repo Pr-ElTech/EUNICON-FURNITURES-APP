@@ -4,14 +4,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: white; /* Changed from green to match image */
+  background: white;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 1000;
   font-family: sans-serif;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: add shadow */
-
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   .header-Wrapper {
     width: 90%;
     height: 100%;
@@ -146,8 +145,7 @@
       .Profile-Bar {
         width: 120px;
         height: 40px;
-        background-color: #7499ff; /* Updated to match blue */
-        color: white;
+        background-color: #7499ff;
         border-radius: 8px;
         font-weight: 600;
         display: flex;

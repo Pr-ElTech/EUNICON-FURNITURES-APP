@@ -1,31 +1,22 @@
-/* Update your base layout wrapper */
 .category-page {
   width: 100%;
-  /* Add top padding equal to your header's height (e.g., 80px) 
-     so the fixed header doesn't overlap the content initially */
+
   padding: 80px 0px 40px 0px;
   box-sizing: border-box;
 }
 
-/* --- Fixed Header Setup --- 
-   Apply this to your navigation bar container inside <HeroHeader /> 
-*/
 .hero-header-container,
 .navbar {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 80px; /* Match this with your header's actual height */
-  z-index: 100; /* Keeps it above everything else, including the hero text overlay */
-  background-color: #ffffff; /* Make sure it has a background color so content doesn't bleed through */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Optional: adds clean depth when scrolling */
+  height: 80px;
+  z-index: 100;
+  background-color: #ffffff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
-/* --- Fix for the Hero Image Position --- 
-   Change .hero-image back to position: absolute so it stays fully contained 
-   inside the .category-hero container and doesn't push down the text.
-*/
 .category-hero {
   position: relative;
   width: 100%;
@@ -37,12 +28,12 @@
 }
 
 .hero-image {
-  position: absolute; /* Keeps it as a background behind the text */
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: fill; /* 'cover' works much better than 'fill' to keep image proportions clean */
+  object-fit: fill;
   /* z-index: 1; */
 }
 
@@ -56,7 +47,6 @@
   color: #ffffff;
 }
 
-/* --- Rest of your original clean Flexbox styles --- */
 .back-arrow {
   font-size: 45px;
   color: #ffffff;
