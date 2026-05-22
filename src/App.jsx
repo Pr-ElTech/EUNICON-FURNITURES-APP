@@ -10,8 +10,8 @@ const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/" element={<LoginPage />} />
+        <Route path="/register" element={<SignupPage />} />
         <Route path="/home" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/product" element={<Home />} />
@@ -19,6 +19,8 @@ const App = () => {
         <Route path="/blog" element={<Blog />} />
         <Route path="/chart" element={<Home />} />
         <Route path="/profile" element={<Home />} />
+        <Route path="/category/:categoryId" element={<CategoryPage />} />{" "}
+        <Route path="/contact" element={<Home />} />
         <Route path="/contact" element={<Home />} />
 
       </Routes>
