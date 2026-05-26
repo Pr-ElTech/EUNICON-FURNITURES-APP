@@ -4,7 +4,7 @@ import { directors } from '../data/directors'
 
 const Portrait = ({image,name,role}) => {
   return (
-    <div className='card'>
+    <div className='portrait_card'>
       <img src={image} alt={name} />
 
       <h3>{name}</h3>
