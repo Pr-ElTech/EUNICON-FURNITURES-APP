@@ -1,12 +1,13 @@
-import React from "react";
+//import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Register from "./Pages/Register";
+//import Register from "./Pages/Register";
 import Home from "./Pages/Home";
 import Login from "./Pages/Login";
 import Blog from "./Pages/Blog";
 import About from "./Pages/About";
 import SignupPage from "./Pages/SignupPage";
 import CategoryPage from "./Pages/CategoryPage";
+import Service from "./Pages/Service";
 
 const App = () => {
   return (
@@ -17,7 +18,7 @@ const App = () => {
         <Route path="/home" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/product" element={<Home />} />
-        <Route path="/services" element={<Home />} />
+        <Route path="/services" element={<Service />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/chart" element={<Home />} />
         <Route path="/profile" element={<Home />} />
