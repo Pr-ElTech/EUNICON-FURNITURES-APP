@@ -85,6 +85,7 @@ import { IoIosArrowDropleft } from "react-icons/io";
 import "../Style/CategoryPage.css";
 import HeroHeader from "../Components/HeroHeader";
 import Herofooter from "../Components/HeroFooter";
+import axios from "axios";
 
 const CategoryPage = () => {
   const { categoryId } = useParams();
@@ -99,6 +100,17 @@ const CategoryPage = () => {
         (sub) => String(sub.id).toLowerCase().trim() === cleanId,
       ),
   );
+
+  // const productApi = (async) => {
+  //   const productRes = axios.get(
+  //     `https://eunicon-furnitures.onrender.com/api/v1/allProduct`,
+  //   );
+  //   const apiProd;
+  //   try {
+  //   } catch (error) {
+  //   } finally {
+  //   }
+  // };
 
   const activeCategory = sourceSection
     ? sourceSection.categories.find(

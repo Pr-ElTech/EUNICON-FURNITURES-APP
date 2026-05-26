@@ -1,12 +1,10 @@
 import React from "react";
-import "../css/Login.css"
+import "../css/Login.css";
 
 const Login = () => {
   return (
-
     <div className="create_account_container">
       <form className="account_form">
-
         <h1>Create Account</h1>
 
         <input type="text" placeholder="First Name" />
@@ -20,7 +18,6 @@ const Login = () => {
         <input type="text" placeholder="Phone Number" />
 
         <button>Create</button>
-
       </form>
     </div>
   );
