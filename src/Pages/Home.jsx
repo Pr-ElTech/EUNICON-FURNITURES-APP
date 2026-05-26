@@ -13,7 +13,9 @@ const Home = () => {
   // For example, combining items or targeting a master product array
   const allProducts =
     headerMiddle?.flatMap(
-      (section) => section.categories?.flatMap((cat) => cat.items || []) || [],
+      (section) =>
+        section.categories?.slice(0, 10).flatMap((cat) => cat.items || []) ||
+        [],
     ) || [];
 
   return (
