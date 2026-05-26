@@ -7,12 +7,12 @@ import HeroFooter from '../Components/HeroFooter';
 
 const Service = () => {
     const products = [
-    { id: 1, title: "Pipe fittings", price: "₦5,000", image: "https://via.placeholder.com/300x200" },
-    { id: 2, title: "Pipe fittings", price: "₦5,000", image: "https://via.placeholder.com/300x200" },
-    { id: 3, title: "Pipe fittings", price: "₦5,000", image: "https://via.placeholder.com/300x200" },
-    { id: 4, title: "Pipe fittings", price: "₦5,000", image: "https://via.placeholder.com/300x200" },
-    { id: 5, title: "Pipe fittings", price: "₦5,000", image: "https://via.placeholder.com/300x200" },
-    { id: 6, title: "Pipe fittings", price: "₦5,000", image: "https://via.placeholder.com/300x200" },
+    { id: 1, title: "Pipe fittings", price: "₦5,000", image: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTITMnnHI7E83fb7ohkM0A44J_RrWNJQdxQZ36uoKYXFoa79YT9" },
+    { id: 2, title: "Pipe fittings", price: "₦5,000", image: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTITMnnHI7E83fb7ohkM0A44J_RrWNJQdxQZ36uoKYXFoa79YT9" },
+    { id: 3, title: "Pipe fittings", price: "₦5,000", image: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTITMnnHI7E83fb7ohkM0A44J_RrWNJQdxQZ36uoKYXFoa79YT9" },
+    { id: 4, title: "Pipe fittings", price: "₦5,000", image: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTITMnnHI7E83fb7ohkM0A44J_RrWNJQdxQZ36uoKYXFoa79YT9" },
+    { id: 5, title: "Pipe fittings", price: "₦5,000", image: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTITMnnHI7E83fb7ohkM0A44J_RrWNJQdxQZ36uoKYXFoa79YT9" },
+    { id: 6, title: "Pipe fittings", price: "₦5,000", image: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTITMnnHI7E83fb7ohkM0A44J_RrWNJQdxQZ36uoKYXFoa79YT9" },
   ];
   return (
     <div className='service_page'>
