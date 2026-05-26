@@ -4,11 +4,14 @@ import Portrait from '../Components/Portrait'
 import Statements from '../Components/Statements'
 import { directors } from '../data/directors'
 import eunicon from "../assets/directorsportrait/eunicon.jpg"
+import Header from "../Components/HeroHeader"
+import Footer from "../Components/HeroFooter"
 
 
 const About = () => {
   return (
     <div className='about_us_page'>
+        <Header/>
         <div className='about_us_page_wrapper'>
             <h1>ABOUT US</h1>
             <div className='about_text_and_image'>
@@ -85,7 +88,7 @@ const About = () => {
             </article>
         
 
-
+<Footer/>
         </div>
 
       
