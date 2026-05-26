@@ -1,9 +1,9 @@
-import React from 'react'
+//import React from 'react'
 import "../css/About.css"
 import Portrait from '../Components/Portrait'
 import Statements from '../Components/Statements'
 import { directors } from '../data/directors'
-import eunicon from "../assets/directorsportrait/eunicon.jpg"
+// import eunicon from "../assets/directorsportrait/eunicon.jpg"
 
 
 const About = () => {

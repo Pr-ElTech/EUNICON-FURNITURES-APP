@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import "../Style/HeaderHero.css";
 import { headerMiddle } from "../JS/Header";
 import EuniconPrjLogo from "../Assets/EuniconPrjLogo.png";
