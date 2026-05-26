@@ -7,6 +7,8 @@ import Blog from "./Pages/Blog";
 import About from "./Pages/About";
 import SignupPage from "./Pages/SignupPage";
 import CategoryPage from "./Pages/CategoryPage";
+import CustomFurniturePage from "./Components/CustomFurniturePage";
+import Checkout from "./Components/Checkout";
 import Service from "./Pages/Service";
 
 const App = () => {
@@ -18,12 +20,13 @@ const App = () => {
         <Route path="/home" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/product" element={<Home />} />
+        <Route path="/Checkout" element={<Checkout />} />
         <Route path="/services" element={<Service />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/chart" element={<Home />} />
         <Route path="/profile" element={<Home />} />
         <Route path="/category/:categoryId" element={<CategoryPage />} />{" "}
-        <Route path="/contact" element={<Home />} />
+        <Route path="/CustomFurniturePage" element={<CustomFurniturePage />} />
         <Route path="/contact" element={<Home />} />
       </Routes>
     </BrowserRouter>
