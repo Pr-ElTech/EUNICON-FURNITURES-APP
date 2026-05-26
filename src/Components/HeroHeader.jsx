@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom"; // Import useNavigate
 import "../Style/HeaderHero.css";
 import { headerMiddle } from "../JS/Header";
@@ -33,7 +33,6 @@ const HeroHeader = () => {
                     <div
                       key={sub.id}
                       className="dropdown-item"
-                      // Navigate to the unique id path on click
                       onClick={() => navigate(`/category/${sub.id}`)}
                     >
                       {sub.name}
@@ -47,9 +46,10 @@ const HeroHeader = () => {
 
         <div className="header-right">
           <div className="Profile-Bar">
-            <CiUser /> Peculiar
+            <CiUser className="Icon" /> Peculiar
           </div>
-          <CiSearch /> <CiHeart /> <BsCart2 />
+          <CiSearch className="Icon" /> <CiHeart className="Icon" />
+          <BsCart2 className="Icon" />
         </div>
       </section>
     </div>
