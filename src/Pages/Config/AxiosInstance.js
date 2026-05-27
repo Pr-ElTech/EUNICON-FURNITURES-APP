@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import axios from "axios"
 import { promise } from "zod"
 import process from "zod/v4/core"
@@ -20,7 +19,3 @@ axiosInstance.interceptors.request.use(
     },
     error=>promise.reject(error)
 )
-
-=======
->>>>>>> master
-VITE_API_URL = https://eunicon-furnitures-1.onrender.com/api/v1

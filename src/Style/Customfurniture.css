@@ -1,0 +1,94 @@
+/* --- Main Layout Wrapper --- */
+.customfurniture {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  box-sizing: border-box;
+}
+
+/* --- Top Section (Split Hero Banner) --- */
+.customfurniture-top {
+  width: 100%;
+  height: 600px; /* Explicit height for the top split block */
+  display: flex;
+  flex-direction: row;
+}
+
+/* Left Half: Blue Box Text Content Layout */
+.customfurniture-top-img-left {
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    #7ba0e9,
+    #4a74cd
+  ); /* Clean blue tone match */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0px 8%;
+  box-sizing: border-box;
+}
+
+.customfurniture-top-img-left h1 {
+  font-family: sans-serif;
+  font-size: 38px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.4;
+  margin: 0 0 30px 0;
+}
+
+/* Right Half: Hero Feature Image Container */
+.customfurniture-top-img-right {
+  width: 50%;
+  height: 100%;
+}
+
+.customfurniture-top-img-right img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the product image covers space cleanly */
+}
+
+/* --- Bottom Section (Slider Gallery Row) --- */
+.customfurniture-buttom {
+  width: 100%;
+  height: 480px; /* Explicit height to contain the tall card shapes */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 25px; /* Spaces the columns evenly across the center line */
+  padding: 80px 5%;
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* Carousel/Slider Floating Navigation Icons Container wrapper */
+.iconHolder {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 2%;
+  box-sizing: border-box;
+  pointer-events: none; /* Allows clicks to pass through to items if empty */
+}
+
+/* Unique Stylized Image Panels */
+.customfurniture-buttom-img-left {
+  flex: 1; /* Automatically splits the width evenly between all 5 cards */
+  height: 100%;
+  border-radius: 24px; /* Smooth curved corner frames */
+  overflow: hidden;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.08); /* Soft decorative depth */
+}
+
+.customfurniture-buttom-img-left img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

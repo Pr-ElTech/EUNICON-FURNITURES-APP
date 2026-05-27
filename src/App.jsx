@@ -1,6 +1,5 @@
-//import React from "react";
+import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-//import Register from "./Pages/Register";
 import Home from "./Pages/Home";
 import Login from "./Pages/Login";
 import Blog from "./Pages/Blog";
@@ -16,14 +15,23 @@ import UbaniPortfolio from "./Pages/UbaniPortfolio";
 import FurnitureService from "./Pages/FurnitureService";
 import FurnitureAbout from "./Pages/FurnitureAbout";
 import FurniturePortfolio from "./Pages/FurniturePortfolio";
+<<<<<<< HEAD
 import AddToCart from "./Pages/AddToCart";
+=======
+import CustomFurniturePage from "./Components/CustomFurniturePage";
+import Checkout from "./Components/Checkout";
+import Service from "./Pages/Service"; // Imported and now correctly mapped below
+>>>>>>> master
 
 const App = () => {
   return (
     <BrowserRouter>
       <Routes>
+        {/* Authentication Routes */}
         <Route path="/" element={<Login />} />
         <Route path="/register" element={<SignupPage />} />
+
+        {/* Primary Content Links */}
         <Route path="/home" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/product" element={<Home />} />
@@ -38,10 +46,18 @@ const App = () => {
         <Route path="/FurniturePortfolio" element={<FurniturePortfolio />} />
         <Route path="/AddToCart" element={<AddToCart />} />
         <Route path="/blog" element={<Blog />} />
-        <Route path="/chart" element={<Home />} />
+
+        {/* Consolidated Single Lowercase Checkout Route */}
+        <Route path="/checkout" element={<Checkout />} />
+
+        {/* Category & Services */}
+        <Route path="/category/:categoryId" element={<CategoryPage />} />
+        <Route path="/custom-furniture" element={<CustomFurniturePage />} />
+        <Route path="/service" element={<Service />} />
+
+        {/* Utility Backstops */}
+        <Route path="/cart" element={<Home />} />
         <Route path="/profile" element={<Home />} />
-        <Route path="/category/:categoryId" element={<CategoryPage />} />{" "}
-        <Route path="/contact" element={<Home />} />
         <Route path="/contact" element={<Home />} />
       </Routes>
     </BrowserRouter>
