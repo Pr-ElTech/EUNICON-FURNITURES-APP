@@ -38,7 +38,7 @@ const ProductCard = ({ product }) => {
 
       <div className="product-details-row">
         <div className="price-box">
-          <span className="old-price">₦300,000</span>
+          <span className="old-price">₦5,000,000</span>
           <span className="current-price">{product?.price}</span>
         </div>
 
