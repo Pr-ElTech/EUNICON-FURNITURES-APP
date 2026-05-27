@@ -5,7 +5,7 @@ import samuel from '../assets/directorsportrait/samuel (2).png'
 import ProductCard from '../Components/ProductCard';
 import HeroFooter from '../Components/HeroFooter';
 
-const Service = () => {
+const FurnitureService = () => {
     const products = [
     { id: 1, title: "Pipe fittings", price: "₦5,000", image: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTITMnnHI7E83fb7ohkM0A44J_RrWNJQdxQZ36uoKYXFoa79YT9" },
     { id: 2, title: "Pipe fittings", price: "₦5,000", image: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTITMnnHI7E83fb7ohkM0A44J_RrWNJQdxQZ36uoKYXFoa79YT9" },
@@ -21,10 +21,10 @@ const Service = () => {
             <Cards 
           img={samuel}
           name="Umeh John"
-          profession="Plumber"
+          profession="Furniture"
           rating={5.0}
           experience={5}
-          location="New York, NY"
+          location="Lagos, Nigeria"
           showBtn={true}
         />
       </div>
@@ -34,7 +34,9 @@ const Service = () => {
         <div className='title-about'>Portfolio</div>
     </div>
     <div className='service'>
-        <p>Emmanuel offers expert pipe installation services for both residential and commercial properties. He ensures that every system is properly planned and installed using high-quality materials, delivering a reliable and long-lasting water flow system that meets modern standards.</p>
+        <p>Umeh John is a skilled furniture expert based in Lagos with over 5 years of experience in designing and crafting high-quality, durable, and stylish furniture. With a 5.0 rating from over 1,130 satisfied clients, he is trusted for delivering excellent results with precision and creativity.
+        Custom furniture design, sofa and chair production, bed frames and bedroom furniture, furniture repairs, office furniture, and interior consultation — all tailored to fit your space and style.
+        </p>
     </div>
     <div className='explore'>
         <h3>Explore His Services</h3>
@@ -103,4 +105,4 @@ const Service = () => {
   );
 };
 
-export default Service;
+export default FurnitureService;

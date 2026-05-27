@@ -5,14 +5,14 @@ import samuel from '../assets/directorsportrait/samuel (2).png'
 import ProductCard from '../Components/ProductCard';
 import HeroFooter from '../Components/HeroFooter';
 
-const Service = () => {
+const ServiceUbani = () => {
     const products = [
-    { id: 1, title: "Pipe fittings", price: "₦5,000", image: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTITMnnHI7E83fb7ohkM0A44J_RrWNJQdxQZ36uoKYXFoa79YT9" },
-    { id: 2, title: "Pipe fittings", price: "₦5,000", image: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTITMnnHI7E83fb7ohkM0A44J_RrWNJQdxQZ36uoKYXFoa79YT9" },
-    { id: 3, title: "Pipe fittings", price: "₦5,000", image: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTITMnnHI7E83fb7ohkM0A44J_RrWNJQdxQZ36uoKYXFoa79YT9" },
-    { id: 4, title: "Pipe fittings", price: "₦5,000", image: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTITMnnHI7E83fb7ohkM0A44J_RrWNJQdxQZ36uoKYXFoa79YT9" },
-    { id: 5, title: "Pipe fittings", price: "₦5,000", image: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTITMnnHI7E83fb7ohkM0A44J_RrWNJQdxQZ36uoKYXFoa79YT9" },
-    { id: 6, title: "Pipe fittings", price: "₦5,000", image: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTITMnnHI7E83fb7ohkM0A44J_RrWNJQdxQZ36uoKYXFoa79YT9" },
+    { id: 1, title: "Pipe fittings", price: "₦3,000,000", image: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTITMnnHI7E83fb7ohkM0A44J_RrWNJQdxQZ36uoKYXFoa79YT9" },
+    { id: 2, title: "Pipe fittings", price: "₦3,000,000", image: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTITMnnHI7E83fb7ohkM0A44J_RrWNJQdxQZ36uoKYXFoa79YT9" },
+    { id: 3, title: "Pipe fittings", price: "₦3,000,000", image: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTITMnnHI7E83fb7ohkM0A44J_RrWNJQdxQZ36uoKYXFoa79YT9" },
+    { id: 4, title: "Pipe fittings", price: "₦3,000,000", image: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTITMnnHI7E83fb7ohkM0A44J_RrWNJQdxQZ36uoKYXFoa79YT9" },
+    { id: 5, title: "Pipe fittings", price: "₦3,000,000", image: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTITMnnHI7E83fb7ohkM0A44J_RrWNJQdxQZ36uoKYXFoa79YT9" },
+    { id: 6, title: "Pipe fittings", price: "₦3,000,000", image: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTITMnnHI7E83fb7ohkM0A44J_RrWNJQdxQZ36uoKYXFoa79YT9" },
   ];
   return (
     <div className='service_page'>
@@ -20,8 +20,8 @@ const Service = () => {
       <div className='inner_service_page'>
             <Cards 
           img={samuel}
-          name="Umeh John"
-          profession="Plumber"
+          name="Ubani Joseph"
+          profession="Painting"
           rating={5.0}
           experience={5}
           location="New York, NY"
@@ -34,7 +34,9 @@ const Service = () => {
         <div className='title-about'>Portfolio</div>
     </div>
     <div className='service'>
-        <p>Emmanuel offers expert pipe installation services for both residential and commercial properties. He ensures that every system is properly planned and installed using high-quality materials, delivering a reliable and long-lasting water flow system that meets modern standards.</p>
+        <p>Give your space a fresh, vibrant look with expert painting services delivered with precision and care. Ubani Joseph brings over 5 years of experience in transforming homes and commercial spaces with smooth, durable, and visually stunning finishes.
+            With a 5.0 rating from over 1,130 satisfied clients, every project is handled with professionalism, attention to detail, and a commitment to excellence.
+        </p>
     </div>
     <div className='explore'>
         <h3>Explore His Services</h3>
@@ -103,4 +105,4 @@ const Service = () => {
   );
 };
 
-export default Service;
+export default ServiceUbani;
