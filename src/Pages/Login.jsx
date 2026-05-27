@@ -3,6 +3,26 @@ import "../css/Login.css"
 import BlogBtn from "../Components/BlogBtn";
 
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    console.log("LOGGED IN SUCCESSFUL!");
+
+    if (
+      !email || 
+      !password
+    ) {
+      alert ("Input all details");
+      return;
+    } else {
+      alert ("Logged in sU")
+    }
+  }
+
+
   return (
 
 
