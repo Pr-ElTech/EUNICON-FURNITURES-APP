@@ -17,7 +17,8 @@ import FurnitureAbout from "./Pages/FurnitureAbout";
 import FurniturePortfolio from "./Pages/FurniturePortfolio";
 import CustomFurniturePage from "./Components/CustomFurniturePage";
 import Checkout from "./Components/Checkout";
-import Service from "./Pages/Service"; // Imported and now correctly mapped below
+import CartPage from "./Pages/CartPage";
+// import Service from "./Pages/Service"; // Imported and now correctly mapped below
 
 const App = () => {
   return (
@@ -30,7 +31,7 @@ const App = () => {
         {/* Primary Content Links */}
         <Route path="/home" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/product" element={<Home />} />
+        <Route path="/CartPage" element={<CartPage />} />
         <Route path="/Service" element={<Service />} />
         <Route path="/ServiceAbout" element={<ServiceAbout />} />
         <Route path="/ServicePortfolio" element={<ServicePortfolio />} />
