@@ -2,51 +2,34 @@ import '../Style/Service.css';
 import Header from '../Components/HeroHeader'
 import Cards from '../Components/ServiceCard';
 import samuel from '../assets/directorsportrait/samuel (2).png'
-import ProductCard from '../Components/ProductCard';
 import HeroFooter from '../Components/HeroFooter';
 
-const Service = () => {
-    const products = [
-    { id: 1, title: "Pipe fittings", price: "₦5,000", image: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTITMnnHI7E83fb7ohkM0A44J_RrWNJQdxQZ36uoKYXFoa79YT9" },
-    { id: 2, title: "Pipe fittings", price: "₦5,000", image: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTITMnnHI7E83fb7ohkM0A44J_RrWNJQdxQZ36uoKYXFoa79YT9" },
-    { id: 3, title: "Pipe fittings", price: "₦5,000", image: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTITMnnHI7E83fb7ohkM0A44J_RrWNJQdxQZ36uoKYXFoa79YT9" },
-    { id: 4, title: "Pipe fittings", price: "₦5,000", image: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTITMnnHI7E83fb7ohkM0A44J_RrWNJQdxQZ36uoKYXFoa79YT9" },
-    { id: 5, title: "Pipe fittings", price: "₦5,000", image: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTITMnnHI7E83fb7ohkM0A44J_RrWNJQdxQZ36uoKYXFoa79YT9" },
-    { id: 6, title: "Pipe fittings", price: "₦5,000", image: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTITMnnHI7E83fb7ohkM0A44J_RrWNJQdxQZ36uoKYXFoa79YT9" },
-  ];
+const ServiceAbout = () => {
   return (
     <div className='service_page'>
         <Header />
       <div className='inner_service_page'>
             <Cards 
           img={samuel}
-          name="Umeh John"
+          name="Alex Emmanuel"
           profession="Plumber"
           rating={5.0}
           experience={5}
-          location="New York, NY"
+          location="Lagos, Nigeria"
           showBtn={true}
         />
       </div>
     <div className='header-title'>
-        <div className='title-about'>About</div>
-        <div className='title-service'>Service</div>
+        <div className='title-about' style={{ backgroundColor: '#81A7F3', color: 'white' }}>About</div>
+        <div className='title-service' style={{ backgroundColor: '#F7F8FF', color: 'black' }}>Service</div>
         <div className='title-about'>Portfolio</div>
     </div>
     <div className='service'>
-        <p>Emmanuel offers expert pipe installation services for both residential and commercial properties. He ensures that every system is properly planned and installed using high-quality materials, delivering a reliable and long-lasting water flow system that meets modern standards.</p>
+        <p>Alex Emmanuel is a highly skilled and reliable plumber with over 5 years of hands-on experience delivering top-quality plumbing solutions across Lagos. Known for his professionalism and attention to detail, Alex specializes in both residential and commercial plumbing services.
+            From fixing minor leaks to handling complex pipe installations, he ensures every job is completed efficiently and to the highest standard. His commitment to customer satisfaction has earned him a 5.0 rating from over 1,300 happy clients.</p>
     </div>
     <div className='explore'>
         <h3>Explore His Services</h3>
-    </div>
-    <div className='products'>
-        <div className="products-container">
-      <div className="products-grid">
-        {products.map((item) => (
-          <ProductCard key={item.id} product={item} />
-        ))}
-      </div>
-    </div>
     </div>
     <div className="contact-container">
       <div className="contact-form-side">
@@ -103,4 +86,4 @@ const Service = () => {
   );
 };
 
-export default Service;
+export default ServiceAbout;

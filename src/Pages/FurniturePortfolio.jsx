@@ -2,18 +2,10 @@ import '../Style/Service.css';
 import Header from '../Components/HeroHeader'
 import Cards from '../Components/ServiceCard';
 import samuel from '../assets/directorsportrait/samuel (2).png'
-import ProductCard from '../Components/ProductCard';
 import HeroFooter from '../Components/HeroFooter';
+import Portrait from '../Components/Portrait';
 
-const Service = () => {
-    const products = [
-    { id: 1, title: "Pipe fittings", price: "₦5,000", image: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTITMnnHI7E83fb7ohkM0A44J_RrWNJQdxQZ36uoKYXFoa79YT9" },
-    { id: 2, title: "Pipe fittings", price: "₦5,000", image: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTITMnnHI7E83fb7ohkM0A44J_RrWNJQdxQZ36uoKYXFoa79YT9" },
-    { id: 3, title: "Pipe fittings", price: "₦5,000", image: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTITMnnHI7E83fb7ohkM0A44J_RrWNJQdxQZ36uoKYXFoa79YT9" },
-    { id: 4, title: "Pipe fittings", price: "₦5,000", image: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTITMnnHI7E83fb7ohkM0A44J_RrWNJQdxQZ36uoKYXFoa79YT9" },
-    { id: 5, title: "Pipe fittings", price: "₦5,000", image: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTITMnnHI7E83fb7ohkM0A44J_RrWNJQdxQZ36uoKYXFoa79YT9" },
-    { id: 6, title: "Pipe fittings", price: "₦5,000", image: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTITMnnHI7E83fb7ohkM0A44J_RrWNJQdxQZ36uoKYXFoa79YT9" },
-  ];
+const FurniturePortfolio = () => {
   return (
     <div className='service_page'>
         <Header />
@@ -21,32 +13,36 @@ const Service = () => {
             <Cards 
           img={samuel}
           name="Umeh John"
-          profession="Plumber"
+          profession="Furniture"
           rating={5.0}
           experience={5}
-          location="New York, NY"
+          location="Lagos, Nigeria"
           showBtn={true}
         />
       </div>
     <div className='header-title'>
         <div className='title-about'>About</div>
-        <div className='title-service'>Service</div>
-        <div className='title-about'>Portfolio</div>
+        <div className='title-service' style={{ backgroundColor: '#F7F8FF', color: 'black' }}>Service</div>
+        <div className='title-about' style={{ backgroundColor: '#81A7F3', color: 'white' }}>Portfolio</div>
     </div>
     <div className='service'>
-        <p>Emmanuel offers expert pipe installation services for both residential and commercial properties. He ensures that every system is properly planned and installed using high-quality materials, delivering a reliable and long-lasting water flow system that meets modern standards.</p>
+        <p>Take a look at some of my recent works — each piece crafted with precision, creativity, and attention to detail. From modern designs to timeless classics, every project reflects quality and durability you can trust.
+        Every furniture piece is carefully designed to match the client’s space, style, and comfort needs. I focus not just on how it looks, but how it feels and lasts over time.
+        </p>
     </div>
-    <div className='explore'>
-        <h3>Explore His Services</h3>
+    <div className='products' style={{height: '300px', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+       <Portrait image={samuel} />
     </div>
-    <div className='products'>
-        <div className="products-container">
-      <div className="products-grid">
-        {products.map((item) => (
-          <ProductCard key={item.id} product={item} />
-        ))}
-      </div>
+    <div className='service'>
+        <p>Every client is unique and so we make sure to work closely with our clients to design a space that suits each personality by actualizing the picture in their mind and making it a reality.Umeh John constantly seeks to offer utmost satisfaction to our interior design clients and every person that shops on our interior decor online store,hire an interior decorator in Nigeria.
+</p>
     </div>
+    <div className='products' style={{height: '300px', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+       <Portrait image={samuel} />
+    </div>
+    <div className='service'>
+        <p>Eunicon Interior also offers online interior design consultation as well as physical interior assessment . If you are worried about the cost of hiring a professional interior designer in Lagos, fear not because or services are exquisite and affordable. Visit our Interior Decor shop in Lagos or shop online.
+</p>
     </div>
     <div className="contact-container">
       <div className="contact-form-side">
@@ -103,4 +99,4 @@ const Service = () => {
   );
 };
 
-export default Service;
+export default FurniturePortfolio;

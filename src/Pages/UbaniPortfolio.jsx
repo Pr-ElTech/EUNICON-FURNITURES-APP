@@ -2,51 +2,37 @@ import '../Style/Service.css';
 import Header from '../Components/HeroHeader'
 import Cards from '../Components/ServiceCard';
 import samuel from '../assets/directorsportrait/samuel (2).png'
-import ProductCard from '../Components/ProductCard';
 import HeroFooter from '../Components/HeroFooter';
+import Portrait from '../Components/Portrait';
 
-const Service = () => {
-    const products = [
-    { id: 1, title: "Pipe fittings", price: "₦5,000", image: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTITMnnHI7E83fb7ohkM0A44J_RrWNJQdxQZ36uoKYXFoa79YT9" },
-    { id: 2, title: "Pipe fittings", price: "₦5,000", image: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTITMnnHI7E83fb7ohkM0A44J_RrWNJQdxQZ36uoKYXFoa79YT9" },
-    { id: 3, title: "Pipe fittings", price: "₦5,000", image: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTITMnnHI7E83fb7ohkM0A44J_RrWNJQdxQZ36uoKYXFoa79YT9" },
-    { id: 4, title: "Pipe fittings", price: "₦5,000", image: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTITMnnHI7E83fb7ohkM0A44J_RrWNJQdxQZ36uoKYXFoa79YT9" },
-    { id: 5, title: "Pipe fittings", price: "₦5,000", image: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTITMnnHI7E83fb7ohkM0A44J_RrWNJQdxQZ36uoKYXFoa79YT9" },
-    { id: 6, title: "Pipe fittings", price: "₦5,000", image: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTITMnnHI7E83fb7ohkM0A44J_RrWNJQdxQZ36uoKYXFoa79YT9" },
-  ];
+const UbaniPortfolio = () => {
   return (
     <div className='service_page'>
         <Header />
       <div className='inner_service_page'>
             <Cards 
           img={samuel}
-          name="Umeh John"
-          profession="Plumber"
+          name="Ubani Joseph"
+          profession="Painter"
           rating={5.0}
           experience={5}
-          location="New York, NY"
+          location="Lagos, Nigeria"
           showBtn={true}
         />
       </div>
     <div className='header-title'>
         <div className='title-about'>About</div>
-        <div className='title-service'>Service</div>
-        <div className='title-about'>Portfolio</div>
+        <div className='title-service' style={{ backgroundColor: '#F7F8FF', color: 'black' }}>Service</div>
+        <div className='title-about' style={{ backgroundColor: '#81A7F3', color: 'white' }}>Portfolio</div>
     </div>
     <div className='service'>
-        <p>Emmanuel offers expert pipe installation services for both residential and commercial properties. He ensures that every system is properly planned and installed using high-quality materials, delivering a reliable and long-lasting water flow system that meets modern standards.</p>
+        <p>Experience the power of transformation. These recent projects highlight my commitment to precision, from meticulous prep work to a flawless final coat. Whether it’s a modern refresh or a classic restoration, I deliver a durable, high-quality finish that revitalizes your space. I don’t just change the color; I enhance the feel and longevity of your home</p>
     </div>
-    <div className='explore'>
-        <h3>Explore His Services</h3>
+    <div className='products' style={{height: '300px', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+       <Portrait image={samuel} />
     </div>
-    <div className='products'>
-        <div className="products-container">
-      <div className="products-grid">
-        {products.map((item) => (
-          <ProductCard key={item.id} product={item} />
-        ))}
-      </div>
-    </div>
+    <div className='service'>
+        <p>Precision in every stroke, quality in every finish. My portfolio showcases the journey from tired surfaces to vibrant, modern spaces. Each project is tailored to the client’s vision, ensuring a look that is as durable as it is beautiful. See how the right professional finish can completely redefine a room.</p>
     </div>
     <div className="contact-container">
       <div className="contact-form-side">
@@ -103,4 +89,4 @@ const Service = () => {
   );
 };
 
-export default Service;
+export default UbaniPortfolio;
