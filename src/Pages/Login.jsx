@@ -1,23 +1,16 @@
 import React from "react";
 import "../css/Login.css";
+import BlogBtn from "../Components/BlogBtn";
 
 const Login = () => {
   return (
     <div className="create_account_container">
       <form className="account_form">
-        <h1>Create Account</h1>
-
-        <input type="text" placeholder="First Name" />
-
-        <input type="text" placeholder="Last Name" />
-
-        <input type="password" placeholder="Password" />
+        <h1>Login Account</h1>
 
         <input type="email" placeholder="Email" />
-
-        <input type="text" placeholder="Phone Number" />
-
-        <button>Create</button>
+        <input type="password" placeholder="Password" />
+        <BlogBtn className="button" text="Login" />
       </form>
     </div>
   );

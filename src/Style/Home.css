@@ -68,9 +68,13 @@
   gap: 30px;
 }
 
+.rating-stars {
+  color: gold;
+}
 /* Artisan Profiling Sections Styles */
 .services-cards-wrapper,
 .testimonials-grid {
+  font-family: sans-serif;
   display: flex;
   justify-content: center;
   gap: 30px;
@@ -81,6 +85,8 @@
 
 .service-profile-card,
 .testimonial-bubble {
+  /* width: 386px; */
+  /* height: 382px; */
   background-color: #ffffff;
   color: #000000;
   border-radius: 12px;
@@ -89,8 +95,9 @@
   text-align: center;
   display: flex;
   flex-direction: column;
+  /* border: 1px solid black; */
   align-items: center;
-  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.05);
+  box-shadow: 2px 4px 8px gray;
 }
 
 .service-profile-card img {
@@ -110,4 +117,15 @@
   border-radius: 6px;
   font-weight: 500;
   cursor: pointer;
+}
+
+.rating-stars-small {
+  color: gold;
+}
+
+.artisans-services-section {
+  font-family: sans-serif;
+}
+.testimonials-section {
+  font-family: sans-serif;
 }

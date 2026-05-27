@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Register from "./Pages/Register";
 import Home from "./Pages/Home";
 import Login from "./Pages/Login";
 import Blog from "./Pages/Blog";
