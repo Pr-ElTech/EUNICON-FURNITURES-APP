@@ -1,108 +1,140 @@
+/* --- Main Footer Container --- */
 .footer {
-  height: 500px;
   width: 100%;
-  background-color: rgb(159, 180, 238);
+  background-color: #f8fafc; /* Very soft, clean off-white background as shown in Figma */
   display: flex;
   justify-content: center;
-  align-items: center;
-font-family: sans-serif;
-margin-top: 20px;
-
-
-  .footer-wrapper {
-    height: 100%;
-    width: 90%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-
-    .footer-top {
-      height: 80%;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border-bottom: 1px solid #333;
-      /* background-color: black; */
-
-      .footer-left {
-        height: 100%;
-        width: 20%;
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-               /* background-color: green; */
-
-        img{
-          height: 100px;
-          width: 150px;
-          object-fit: contain;
-          border-radius: 50%;
-          padding: 10px;
-        }
-
-        .Link-icons-ctn{
-
-        }
-      }
-      .footer-center {
-        height: 100%;
-        width: 60%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        /* background-color: blue; */
-      }
-      .footer-right {
-        height: 100%;
-        width: 30%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        /* background-color: red; */
-.newsletter-box{
-  height: 100%;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  gap: 10px;
-
-
-
-  input{
-    height: 50px;
-    width: 150px;
-    border-radius: 10px;
-    border: 1px solid #333;
-    padding: 10px;
-    font-size: 1.2rem;
-    font-weight: 400;
-    color: #333;
-    outline: none;
-    background-color: #fff;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
-  }
+  font-family: "Inter", sans-serif; /* Cleaner modern sans-serif stack */
+  padding: 80px 0 40px 0; /* Padding for uniform vertical clearance */
+  box-sizing: border-box;
 }
-       
-      }
-    }
-    .footer-bottom {
-      height: 20%;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      /* background-color: black; */
-    }
-    p {
-      font-size: 1.2rem;
-      font-weight: 400;
-      color: #333;
-    }
-  }
+
+/* --- Content Wrapper Container --- */
+.footer-wrapper {
+  width: 85%; /* Snaps content to center bounds safely away from viewport screen edges */
+  display: flex;
+  flex-direction: column;
+  gap: 60px; /* Space separating top content grid from bottom legal row */
+}
+
+/* --- Top Flex Grid (Row Side-By-Side Layout) --- */
+.footer-top {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; /* Spreads layout sections edge-to-edge evenly */
+  align-items: flex-start; /* Keeps titles perfectly leveled across columns */
+}
+
+/* --- Left Column: Identity & Branding --- */
+.footer-left {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 35px;
+}
+
+.footer-logo {
+  height: auto;
+  width: 140px;
+  object-fit: contain;
+}
+
+.Link-icons-ctn {
+  display: flex;
+  flex-direction: row;
+  gap: 22px;
+  align-items: center;
+}
+
+.footer-Icon {
+  font-size: 20px;
+  color: #0f172a; /* Slate black iconic colors */
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.footer-Icon:hover {
+  color: #7499ff; /* Subtle micro-interaction fallback */
+}
+
+/* --- Center Column: Nav Links Groups --- */
+.footer-center {
+  width: 45%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 100px; /* Strong horizontal spacing between 'Quick Links' and 'Products' text arrays */
+}
+
+/* --- Right Column: Input Box Subscription Wrapper --- */
+.footer-right {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Overridden from center alignment back to clean left flush */
+  gap: 20px;
+}
+
+.footer-right h3 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #000000;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.newsletter-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.newsletter-box input {
+  height: 52px;
+  flex: 1; /* Scales dynamically based on layout box dimensions */
+  max-width: 260px;
+  border-radius: 6px;
+  border: 1px solid #cbd5e1;
+  padding: 0 16px;
+  font-size: 15px;
+  outline: none;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+
+.newsletter-box input:focus {
+  border-color: #7499ff;
+}
+
+.newsletter-input::placeholder {
+  color: #94a3b8;
+}
+
+.subscribe-btn {
+  height: 50px;
+  width: 100px;
+  background-color: #7499ff;
+  border: none;
+  border-radius: 6px;
+}
+/* --- Bottom Section (Horizontal Line & Copyright Row) --- */
+.footer-bottom {
+  width: 100%;
+  border-top: 1px solid #e2e8f0; /* Crisp subtle separator rule line from the figma viewport */
+  padding-top: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-bottom p {
+  font-size: 14px;
+  color: #64748b;
+  margin: 0;
+  font-weight: 400;
 }

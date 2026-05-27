@@ -17,8 +17,8 @@ const ProductCard = ({ product }) => {
       {/* Image Wrap Container */}
       <div className="product-image-container">
         <img
-          src={product.image}
-          alt={product.title}
+          src={product?.image}
+          alt={product?.title}
           className="product-image"
         />
         {/* Wishlist Heart Button */}
@@ -34,12 +34,12 @@ const ProductCard = ({ product }) => {
         </button>
       </div>
 
-      <h3 className="product-title">{product.title}</h3>
+      <h3 className="product-title">{product?.title}</h3>
 
       <div className="product-details-row">
         <div className="price-box">
-          <span className="old-price">₦300,000</span>
-          <span className="current-price">{product.price}</span>
+          <span className="old-price">₦5,000,000</span>
+          <span className="current-price">{product?.price}</span>
         </div>
 
         <div className="action-box">

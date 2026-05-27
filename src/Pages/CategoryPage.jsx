@@ -84,6 +84,7 @@ import ProductChairHero from "../Assets/ProductChairHero.jpg";
 import { IoIosArrowDropleft } from "react-icons/io";
 import "../Style/CategoryPage.css";
 import HeroHeader from "../Components/HeroHeader";
+import Herofooter from "../Components/HeroFooter";
 
 const CategoryPage = () => {
   const { categoryId } = useParams();
@@ -120,7 +121,7 @@ const CategoryPage = () => {
       <HeroHeader />
       <div className="category-hero">
         <img
-          src={ProductChairHero}
+          src={activeCategory.image || ProductChairHero}
           alt="Category Banner"
           className="hero-image"
         />
@@ -148,6 +149,7 @@ const CategoryPage = () => {
           <p className="no-items">New items coming soon!</p>
         )}
       </div>
+      <Herofooter />
     </div>
   );
 };
