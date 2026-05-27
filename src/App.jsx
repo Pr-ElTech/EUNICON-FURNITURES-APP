@@ -16,6 +16,7 @@ import UbaniPortfolio from "./Pages/UbaniPortfolio";
 import FurnitureService from "./Pages/FurnitureService";
 import FurnitureAbout from "./Pages/FurnitureAbout";
 import FurniturePortfolio from "./Pages/FurniturePortfolio";
+import AddToCart from "./Pages/AddToCart";
 
 const App = () => {
   return (
@@ -35,6 +36,7 @@ const App = () => {
         <Route path="/FurnitureService" element={<FurnitureService />} />
         <Route path="/FurnitureAbout" element={<FurnitureAbout />} />
         <Route path="/FurniturePortfolio" element={<FurniturePortfolio />} />
+        <Route path="/AddToCart" element={<AddToCart />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/chart" element={<Home />} />
         <Route path="/profile" element={<Home />} />
