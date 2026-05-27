@@ -1,0 +1,261 @@
+/* ==========================================
+   CART PAGE LAYOUT (PARENT CONTAINER)
+   ========================================== */
+.Cart-Page-Container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 40px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Page Title Details */
+.Cart-Title-Section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.Cart-Title-Section h1 {
+  font-size: 38px;
+  font-weight: 700;
+  color: #000000;
+  margin: 0 0 12px 0;
+}
+
+.Continue-Shopping-Link {
+  color: #929292;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  margin: 0;
+}
+
+.Continue-Shopping-Link:hover {
+  text-decoration: underline;
+}
+
+.Empty-Cart-Message {
+  text-align: center;
+  font-size: 20px;
+  color: #777777;
+  padding: 80px 0;
+}
+
+/* ==========================================
+   FLEXBOX TABLE CONTAINER & HEADERS
+   ========================================== */
+.Cart-Table-Section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.Cart-Table-Header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-bottom: 20px;
+  font-size: 22px;
+  font-weight: 600;
+  color: #000000;
+}
+
+.Cart-Table-Body {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==========================================
+   REUSABLE RECTANGLE ROW COMPONENT STYLES
+   ========================================== */
+.cart-item-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 30px 0;
+  border-top: 1px solid #bfbfbf; /* Clean structural line break from Figma */
+  border-bottom: 1px solid #bfbfbf;
+}
+
+/* Aligning subsequent rows smoothly with any layout height shifts */
+.cart-item-row + .cart-item-row {
+  border-top: none; /* Prevents double lines between adjacent cards */
+}
+
+/* Sizing columns explicitly by flex-basis matching properties */
+.cart-col-product,
+.cart-column-product {
+  flex-basis: 50%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 30px;
+}
+
+.cart-col-price,
+.cart-column-price {
+  flex-basis: 16.66%;
+  font-size: 20px;
+  font-weight: 600;
+  color: #000000;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.cart-col-quantity,
+.cart-column-quantity {
+  flex-basis: 16.66%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.cart-col-total,
+.cart-column-total {
+  flex-basis: 16.66%;
+  font-size: 20px;
+  font-weight: 600;
+  color: #000000;
+  display: flex;
+  justify-content: flex-end; /* Pushes total values neatly to the right margin border */
+}
+
+/* ==========================================
+   ROW ITEM DETAIL GRAPHICS & FONTS
+   ========================================== */
+.product-image-container {
+  width: 140px;
+  height: 120px;
+  background-color: #fcfcfc;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product-text-details {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.product-text-details h3 {
+  font-size: 26px;
+  font-weight: 700;
+  color: #000000;
+  margin: 0;
+}
+
+.remove-item-btn {
+  background: none;
+  border: none;
+  color: #929292;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0;
+  text-align: left;
+  align-self: flex-start;
+}
+
+.remove-item-btn:hover {
+  color: #ff4444;
+  text-decoration: underline;
+}
+
+/* ==========================================
+   COUNTER BOX SELECTOR (PLUS / MINUS)
+   ========================================== */
+.quantity-counter-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: 1px solid #7a7a7a;
+  background-color: #ffffff;
+}
+
+.quantity-counter-box button {
+  background: none;
+  border: none;
+  padding: 8px 16px;
+  font-size: 18px;
+  color: #000000;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quantity-counter-box button:hover {
+  background-color: #f0f0f0;
+}
+
+.quantity-number-display {
+  padding: 0 16px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #000000;
+  border-left: 1px solid #7a7a7a;
+  border-right: 1px solid #7a7a7a;
+  min-width: 24px;
+  text-align: center;
+}
+
+/* ==========================================
+   TOTAL CALCULATIONS SUMMARY BLOCK
+   ========================================== */
+.Cart-Summary-Box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-top: 40px;
+  gap: 24px;
+}
+
+.Subtotal-Row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 80px;
+}
+
+.Subtotal-Label {
+  font-size: 22px;
+  color: #929292;
+  font-weight: 500;
+}
+
+.Subtotal-Price {
+  font-size: 24px;
+  font-weight: 700;
+  color: #000000;
+}
+
+.Checkout-Action-Btn {
+  background-color: #82a0f6; /* Beautiful soft blue matching checkout buttons */
+  color: #ffffff;
+  border: none;
+  padding: 14px 45px;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  letter-spacing: 0.3px;
+  transition: background-color 0.2s ease;
+}
+
+.Checkout-Action-Btn:hover {
+  background-color: #6a8be7;
+}
