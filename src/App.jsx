@@ -19,6 +19,8 @@ import AddToCart from "./Pages/AddToCart";
 import CustomFurniturePage from "./Components/CustomFurniturePage";
 import Checkout from "./Components/Checkout";
 import CartPage from "./Pages/CartPage";
+import CheckoutPage from "./Pages/CheckoutPage";
+import ProfessionalCard from "./Components/ProfessionalCard"
 // import Service from "./Pages/Service"; // Imported and now correctly mapped below
 
 const App = () => {
@@ -44,6 +46,10 @@ const App = () => {
         <Route path="/FurniturePortfolio" element={<FurniturePortfolio />} />
         <Route path="/AddToCart" element={<AddToCart />} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/checkout" element={<CheckoutPage />} />
+        <Route path="/professionalCard" element={<ProfessionalCard/>} />
+
+        
 
         {/* Consolidated Single Lowercase Checkout Route */}
         <Route path="/checkout" element={<Checkout />} />

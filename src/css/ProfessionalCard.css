@@ -1,0 +1,146 @@
+/* Container Box */
+.prof-card-container {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  background-color: #f5f7fb;
+  padding: 32px;
+  border-radius: 16px;
+  max-width: 900px;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, sans-serif;
+  align-items: center;
+}
+
+/* Image Wrapper (Ensures a clean square aspect ratio) */
+.prof-card-image-wrapper {
+  flex: 1;
+  aspect-ratio: 1 / 1;
+  border-radius: 16px;
+  overflow: hidden;
+  background-color: #d9bfa3; /* Fallback matching the image background color */
+}
+
+.prof-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Details Section */
+.prof-card-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  min-height: 320px; /* Aligns vertically nicely with the image height */
+}
+
+.prof-card-info-group {
+  display: flex;
+  flex-direction: column;
+  gap: 24px; /* Spaces out your rows evenly */
+}
+
+/* Row Alignments */
+.prof-card-row {
+  display: flex;
+  align-items: baseline;
+}
+
+/* Specific alignment adjustment for the Star icon row */
+.prof-card-row.alignment-fix {
+  align-items: center;
+}
+
+/* Typography styles */
+.prof-card-label {
+  font-size: 20px;
+  font-weight: 500;
+  color: #334155;
+  width: 140px; /* Acts like a fixed grid column so values line up perfectly */
+  flex-shrink: 0;
+}
+
+.prof-card-value {
+  font-size: 24px;
+  font-weight: 600;
+  color: #000000;
+}
+
+/* Ratings grouping */
+.prof-card-rating-value {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.prof-card-star {
+  color: #f59e0b; /* Golden star color */
+  font-size: 24px;
+}
+
+/* Buttons Styling */
+.prof-card-actions {
+  display: flex;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.prof-btn {
+  flex: 1;
+  padding: 14px 24px;
+  font-size: 18px;
+  font-weight: 700;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-hire {
+  background-color: #7b9ff2;
+  color: #ffffff;
+  border: none;
+}
+
+.btn-hire:hover {
+  background-color: #5582eb;
+}
+
+.btn-message {
+  background-color: #ffffff;
+  color: #000000;
+  border: 2px solid #1e293b;
+}
+
+.btn-message:hover {
+  background-color: #f1f5f9;
+}
+
+/* Responsive adjustment for Mobile screens */
+@media (max-width: 768px) {
+  .prof-card-container {
+    flex-direction: column;
+    padding: 20px;
+  }
+  
+  .prof-card-image-wrapper {
+    width: 100%;
+  }
+
+  .prof-card-details {
+    width: 100%;
+    min-height: auto;
+  }
+
+  .prof-card-label {
+    width: 110px; /* Slightly tighter label spacing on mobile views */
+    font-size: 18px;
+  }
+
+  .prof-card-value {
+    font-size: 20px;
+  }
+}
