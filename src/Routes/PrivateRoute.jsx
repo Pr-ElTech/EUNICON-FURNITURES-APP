@@ -7,7 +7,7 @@ const PrivateRoute = ({ children }) => {
   const isAuthenticated = !!authToken;
 
   // If user is authenticated, render the component; otherwise redirect to login
-  return isAuthenticated ? children : <Navigate to="/" replace />;
+  return !isAuthenticated ? children : <Navigate to="/" replace />;
 };
 
 export default PrivateRoute;

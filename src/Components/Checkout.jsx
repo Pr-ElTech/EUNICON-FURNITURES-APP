@@ -4,6 +4,7 @@ import "../Style/Checkout.css";
 const Checkout = () => {
   return (
     <div className="checkout-container">
+      <Header />
       <h1 className="checkout-title">Checkout</h1>
 
       <div className="checkout-grid">

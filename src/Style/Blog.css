@@ -27,22 +27,117 @@
   }
 } */
 
+/* ==========================================================================
+   PAGE STRUCTURING
+   ========================================================================== */
 .blog-Page {
   width: 100%;
-  display: block;
-}
-
-.blog-Page-wrapper {
-  width: 95%;
-  margin: 0 auto;
-  padding-top: 100px;
+  min-height: 100vh;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
 }
 
 .blog-Page-mainPage {
   width: 100%;
+  flex: 1;
+}
+
+.Blog-Hero-Page {
+  width: 100%;
   display: flex;
   flex-direction: column;
-  min-height: 90vh;
-  gap: 20px;
-  /* box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1); */
+}
+
+/* ==========================================================================
+   HERO BANNER & TEXT OVERLAY
+   ========================================================================== */
+.Blog-Hero-image-container {
+  width: 100%;
+  height: 400px; /* Proportional Figma height */
+  position: relative;
+  overflow: hidden;
+}
+
+.Blog-Hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Prevents distorting/squishing the image */
+  filter: brightness(0.85); /* Enhances readability for white text */
+}
+
+.Blog-Hero-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  z-index: 10;
+}
+
+.Blog-back-btn {
+  width: 40px;
+  height: 40px;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 50%;
+  font-size: 28px;
+  color: #1a1a1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  padding-right: 2px; /* Visual optical alignment for standard arrow glyph */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.Blog-overlay-title {
+  color: #ffffff;
+  font-size: 48px;
+  font-weight: 700;
+  margin: 0;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+  letter-spacing: -0.5px;
+}
+
+/* ==========================================================================
+   3-COLUMN SYSTEM FOR CARDS
+   ========================================================================== */
+/* Constrains the cards cleanly inline with the header logo boundaries */
+.Blog-Grid-wrapper {
+  width: 90%;
+  max-width: 1240px;
+  margin: 60px auto; /* Generates top/bottom spacing between banner and footer */
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.Blog-Hero-article {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Forces exactly 3 items per row */
+  gap: 48px 32px; /* Vertical and horizontal layout spacing */
+  width: 100%;
+}
+
+/* Responsive breakpoint adjustment for smaller Viewports */
+@media (max-width: 968px) {
+  .Blog-Hero-article {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .Blog-Hero-article {
+    grid-template-columns: 1fr;
+  }
+  .Blog-overlay-title {
+    font-size: 36px;
+  }
 }

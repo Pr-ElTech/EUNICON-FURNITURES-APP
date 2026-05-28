@@ -8,13 +8,12 @@ const Blog = () => {
   return (
     <section className="blog-Page">
       <HeroHeader />
-      <div className="blog-Page-wrapper">
-        <article className="blog-Page-mainPage">
-          <BlogHero />
-        </article>
-        <HeroFooter />
-      </div>
+      <main className="blog-Page-mainPage">
+        <BlogHero />
+      </main>
+      <HeroFooter />
     </section>
   );
 };
+
 export default Blog;
