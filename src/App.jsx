@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import Home from "./Pages/Home";
 import Login from "./Pages/Login";
 import Blog from "./Pages/Blog";
@@ -16,126 +16,97 @@ import UbaniPortfolio from "./Pages/UbaniPortfolio";
 import FurnitureService from "./Pages/FurnitureService";
 import FurnitureAbout from "./Pages/FurnitureAbout";
 import FurniturePortfolio from "./Pages/FurniturePortfolio";
-import AddToCart from "./Pages/AddToCart";
 import CustomFurniturePage from "./Components/CustomFurniturePage";
-import Checkout from "./Components/Checkout";
-import CartPage from "./Pages/CartPage";
-import CheckoutPage from "./Pages/CheckoutPage";
 import ProfessionalCard from "./Components/ProfessionalCard";
+// import PrivateRoute from "./Routes/PrivateRoute";
+import ConfirmationPage from "./Components/ConfirmationPage";
 import WatchList from "./Pages/WatchList";
 import ProductDetail from "./Components/ProductDetail";
 import ProfilePage from "./Pages/ProfilePage";
 import EditInfoModal from "./Components/EditInfoModal";
 import EditAdress from "./Components/EditAddress";
-import PagenotFound from "./Pages/PagenotFound";
-
-// import Service from "./Pages/Service"; // Imported and now correctly mapped below
+import CartPage from "./Pages/CartPage";
+import CheckoutPage from "./Pages/CheckoutPage";
 
 const App = () => {
   return (
     <BrowserRouter>
       <Routes>
         {/* Public Authentication Routes */}
-        <Route path="*" element={<PagenotFound />} />
-        <Route path="/" element={<Login />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/register" element={<SignupPage />} />
+
+        {/* 
+          Root Redirection: If users hit "/" it safely sends them to "/home".
+          If they aren't logged in, PrivateRoute inside "/home" handles the kick-back to login.
+        */}
+        <Route path="/" element={<Navigate to="/home" replace />} />
 
         {/* Public Content Routes */}
         <Route path="/about" element={<About />} />
         <Route path="/blog" element={<Blog />} />
-        <Route path="/home" element={<Home />} />
+        {/* Uniformly low-cased utility paths */}
         <Route path="/checkout" element={<CheckoutPage />} />
-        <Route path="/professionalCard" element={<ProfessionalCard />} />
+        <Route path="/professional-card" element={<ProfessionalCard />} />
 
+        {/* Protected Application Routes */}
         <Route
-          path="/CartPage"
+          path="/home"
+          element={
+            <PrivateRoute>
+              <Home />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/cart"
           element={
             <PrivateRoute>
               <CartPage />
             </PrivateRoute>
           }
         />
+        {/* Alias path to handle both variations seamlessly */}
         <Route
-          path="/Service"
+          path="/addtocart"
           element={
             <PrivateRoute>
-              <Service />
+              <Navigate to="/cart" replace />
             </PrivateRoute>
           }
         />
         <Route
-          path="/ServiceAbout"
+          path="/watchlist"
           element={
             <PrivateRoute>
-              <ServiceAbout />
+              <WatchList />
             </PrivateRoute>
           }
         />
         <Route
-          path="/ServicePortfolio"
+          path="/profile"
           element={
             <PrivateRoute>
-              <ServicePortfolio />
+              <ProfilePage />
             </PrivateRoute>
           }
         />
         <Route
-          path="/ServiceUbani"
+          path="/product-detail"
           element={
             <PrivateRoute>
-              <ServiceUbani />
+              <ProductDetail />
             </PrivateRoute>
           }
         />
         <Route
-          path="/AboutUbani"
+          path="/confirmation"
           element={
             <PrivateRoute>
-              <AboutUbani />
+              <ConfirmationPage />
             </PrivateRoute>
           }
         />
-        <Route
-          path="/UbaniPortfolio"
-          element={
-            <PrivateRoute>
-              <UbaniPortfolio />
-            </PrivateRoute>
-          }
-        />
-        <Route
-          path="/FurnitureService"
-          element={
-            <PrivateRoute>
-              <FurnitureService />
-            </PrivateRoute>
-          }
-        />
-        <Route
-          path="/FurnitureAbout"
-          element={
-            <PrivateRoute>
-              <FurnitureAbout />
-            </PrivateRoute>
-          }
-        />
-        <Route
-          path="/FurniturePortfolio"
-          element={
-            <PrivateRoute>
-              <FurniturePortfolio />
-            </PrivateRoute>
-          }
-        />
-        <Route
-          path="/AddToCart"
-          element={
-            <PrivateRoute>
-              <CartPage />
-            </PrivateRoute>
-          }
-        />
-
         <Route
           path="/category/:categoryId"
           element={
@@ -144,22 +115,8 @@ const App = () => {
             </PrivateRoute>
           }
         />
-        <Route
-          path="/WatchList"
-          element={
-            <PrivateRoute>
-              <WatchList />
-            </PrivateRoute>
-          }
-        />
-        <Route
-          path="/ProductDetail"
-          element={
-            <PrivateRoute>
-              <ProductDetail />
-            </PrivateRoute>
-          }
-        />
+
+        {/* Core Dedicated Services Pages */}
         <Route
           path="/custom-furniture"
           element={
@@ -176,17 +133,74 @@ const App = () => {
             </PrivateRoute>
           }
         />
-
         <Route
-          path="/Profile"
+          path="/furniture-service"
           element={
             <PrivateRoute>
-              <ProfilePage />
+              <FurnitureService />
+            </PrivateRoute>
+          }
+        />
+
+        {/* Auxiliary Portfolio / Profile Modals */}
+        <Route
+          path="/service-about"
+          element={
+            <PrivateRoute>
+              <ServiceAbout />
             </PrivateRoute>
           }
         />
         <Route
-          path="/EditInfoModal"
+          path="/service-portfolio"
+          element={
+            <PrivateRoute>
+              <ServicePortfolio />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/service-ubani"
+          element={
+            <PrivateRoute>
+              <ServiceUbani />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/about-ubani"
+          element={
+            <PrivateRoute>
+              <AboutUbani />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/ubani-portfolio"
+          element={
+            <PrivateRoute>
+              <UbaniPortfolio />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/furniture-about"
+          element={
+            <PrivateRoute>
+              <FurnitureAbout />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/furniture-portfolio"
+          element={
+            <PrivateRoute>
+              <FurniturePortfolio />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/edit-info"
           element={
             <PrivateRoute>
               <EditInfoModal />
@@ -194,7 +208,7 @@ const App = () => {
           }
         />
         <Route
-          path="/EditAdress"
+          path="/edit-address"
           element={
             <PrivateRoute>
               <EditAdress />

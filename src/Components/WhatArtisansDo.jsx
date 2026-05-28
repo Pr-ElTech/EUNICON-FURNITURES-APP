@@ -1,5 +1,5 @@
 import React from 'react';
-import '../Style/WhatArtisansDo.css';
+import '../css/WhatArtisansDo.css';
 
 const WhatArtisansDo = () => {
   const artisansData = [
