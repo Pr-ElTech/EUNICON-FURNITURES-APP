@@ -45,47 +45,12 @@ export const headerMiddle = [
     id: 3,
     category: "Product",
     categories: [
-      {
-        id: "chairs",
-        name: "Chairs",
-        image: chair1,
-        items: [],
-      },
-
-      {
-        id: "tables",
-        name: "Tables",
-        image: table1,
-        items: [],
-      },
-
-      {
-        id: "beds",
-        name: "Beds",
-        image: bed1,
-        items: [],
-      },
-
-      {
-        id: "sofas",
-        name: "Sofas",
-        image: sofa1,
-        items: [],
-      },
-
-      {
-        id: "decor",
-        name: "Decor Accessories",
-        image: sofa2,
-        items: [],
-      },
-
-      {
-        id: "rugs",
-        name: "Rugs",
-        image: rug1,
-        items: [],
-      },
+      { id: "chairs", name: "Chairs", image: chair1, items: [] },
+      { id: "tables", name: "Tables", image: table1, items: [] },
+      { id: "beds", name: "Beds", image: bed1, items: [] },
+      { id: "sofas", name: "Sofas", image: sofa1, items: [] },
+      { id: "decor", name: "Decor Accessories", image: sofa2, items: [] },
+      { id: "rugs", name: "Rugs", image: rug1, items: [] },
     ],
   },
 
@@ -96,18 +61,19 @@ export const headerMiddle = [
       {
         id: "custom-furniture",
         name: "Custom Furniture",
+        path: "/custom-furniture", 
         items: [],
       },
-
       {
         id: "hire-artisan",
         name: "Hire An Artisan",
+        path: "/hire-artisan", 
         items: [],
       },
-
       {
         id: "interior-design",
         name: "Interior Design",
+        path: "/interior-design", 
         items: [],
       },
     ],

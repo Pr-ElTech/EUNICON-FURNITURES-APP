@@ -1,0 +1,98 @@
+/* Section Base Settings */
+.how-it-works {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px 100px 20px; /* Generous bottom padding to allow space for staggered cards */
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  text-align: center;
+}
+
+/* Header Heading Styling */
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #000000;
+  margin-bottom: 60px;
+}
+
+/* Flexible Matrix Row Layout */
+.steps-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+
+/* Individual Step Box */
+.step-card {
+  position: relative;
+  background-color: #ffffff;
+  border: 1px solid #eaeaea;
+  border-radius: 16px;
+  min-height: 220px;
+  padding: 40px 24px 24px 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+/* The Staircase Effect: Drops steps 2 and 4 down dynamically */
+.step-card:nth-child(even) {
+  transform: translateY(45px);
+}
+
+/* Top-Left Corner Step Badges */
+.step-badge {
+  position: absolute;
+  top: -1px; /* Align precisely with the card border boundary */
+  left: -1px;
+  background-color: #7b9ff2; /* Matching the custom blue shade */
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 700;
+  padding: 8px 20px;
+  border-radius: 14px 0 14px 0; /* Rounds only the outer top-left and inner bottom-right corners */
+}
+
+/* Core Informational Description */
+.step-text {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #2c3e50;
+  line-height: 1.5;
+  text-align: left;
+  margin: 0;
+}
+
+/* Responsive Scaling for Tablets and Medium Displays */
+@media (max-width: 992px) {
+  .steps-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+
+  /* Reset staircase layout on tablet so it behaves like a standard grid layout */
+  .step-card:nth-child(even) {
+    transform: none;
+  }
+}
+
+/* Responsive Scaling for Mobile Screens */
+@media (max-width: 576px) {
+  .steps-container {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 40px;
+  }
+
+  .step-card {
+    min-height: 160px;
+    padding: 50px 20px 20px 20px;
+  }
+}

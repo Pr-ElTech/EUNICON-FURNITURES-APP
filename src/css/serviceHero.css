@@ -1,0 +1,103 @@
+/* Hero Container Setup */
+.service-hero {
+  position: relative;
+  width: 100%;
+  height: 80vh; /* Takes up 80% of the screen height, adjustable as needed */
+  min-height: 400px;
+  max-height: 600px;
+  
+  /* Fallback color + background image configurations */
+  background-color: #2b1d11; 
+  background-image: url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=1200'); /* Replace with local asset if preferred */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  
+  /* Layout constraints for centering the inner absolute overlay boxes */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Semi-Transparent Background Mask Layer */
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.45); /* Blends down the raw asset image contrast */
+  z-index: 1;
+}
+
+/* Foreground Dynamic Wrapper */
+.hero-content {
+  position: relative;
+  z-index: 2; /* Sits cleanly over the dimming mask */
+  max-width: 850px;
+  padding: 0 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+
+/* Typography Main Accent */
+.hero-title {
+  color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 2.75rem;
+  font-weight: 800;
+  line-height: 1.25;
+  margin: 0;
+  letter-spacing: -0.5px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Provides additional clarity */
+}
+
+/* Call to Action Button styling matching the image blueprint */
+.hero-btn {
+  background-color: #7b9ff2; /* Clean pastel blue hue */
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 14px 44px;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+/* Hover Interactivity States */
+.hero-btn:hover {
+  background-color: #658be0;
+}
+
+.hero-btn:active {
+  transform: scale(0.98);
+}
+
+/* Breakpoints for Responsive Screen Scaling */
+@media (max-width: 768px) {
+  .service-hero {
+    height: 60vh;
+  }
+  
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .hero-btn {
+    padding: 12px 36px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.65rem;
+  }
+}
