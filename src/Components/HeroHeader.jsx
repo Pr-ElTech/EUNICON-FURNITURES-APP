@@ -82,10 +82,14 @@ const HeroHeader = () => {
             <CiUser className="Icon" /> Peculiar
           </div>
           <CiSearch className="Icon" />
-          <CiHeart className="Icon" />
+          <CiHeart
+            className="Icon"
+            onClick={() => navigate("/WatchList")}
+            style={{ cursor: "pointer" }}
+          />
           <BsCart2
             className="Icon"
-            onClick={() => navigate("/checkout")}
+            onClick={() => navigate("/AddToCart")}
             style={{ cursor: "pointer" }}
           />
         </div>

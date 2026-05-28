@@ -1,0 +1,303 @@
+/* ==========================================
+   1. GLOBAL PROFILE BASE LAYOUTS
+   ========================================== */
+.profile-page-hull {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  box-sizing: border-box;
+}
+
+.profile-main-content {
+  flex: 1;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 130px 24px 80px 24px; /* Complete header structural safety spacing */
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  box-sizing: border-box;
+}
+
+/* ==========================================
+   2. REUSABLE CONTENT BLOCK CARDS
+   ========================================== */
+.profile-card {
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 24px 32px;
+  box-sizing: border-box;
+}
+
+/* Banner Identity Card Structural Details */
+.hero-identity-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+
+.avatar-frame {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #f3f4f6;
+}
+
+.avatar-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.identity-text-details h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #000000;
+  margin: 0 0 4px 0;
+}
+
+.identity-text-details p {
+  font-size: 15px;
+  color: #666666;
+  margin: 0;
+}
+
+/* ==========================================
+   3. INNER CARD SUB-COMPONENTS & GRID DATA
+   ========================================== */
+.card-header-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.card-header-row h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #000000;
+  margin: 0;
+}
+
+.section-edit-btn {
+  background: #ffffff;
+  border: 1px solid #666666;
+  border-radius: 6px;
+  padding: 6px 14px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #000000;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.section-edit-btn:hover {
+  background-color: #000000;
+  color: #ffffff;
+  border-color: #000000;
+}
+
+/* Internal Data Information Blueprint Grid */
+.info-data-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 24px;
+  column-gap: 40px;
+}
+
+.info-block {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.info-label {
+  font-size: 15px;
+  font-weight: 700;
+  color: #000000;
+}
+
+.info-value {
+  font-size: 15px;
+  color: #555555;
+  font-weight: 400;
+}
+
+/* ==========================================
+   4. EDIT INTERACTIVE POP-UP MODAL LAYER
+   ========================================== */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent dim background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000; /* Stays securely on top of everything else */
+}
+
+.modal-card {
+  background: #ffffff;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 680px;
+  padding: 32px 40px;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
+}
+
+.modal-card h2 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #000000;
+  margin: 0 0 28px 0;
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background: #e5e7eb;
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #555555;
+  transition: background-color 0.15s;
+}
+
+.modal-close-btn:hover {
+  background-color: #d1d5db;
+  color: #000000;
+}
+
+/* Modal Form Core Inputs Matrix */
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 20px;
+  column-gap: 24px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.input-group label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #000000;
+}
+
+.input-group input {
+  width: 100%;
+  border: 1px solid #b3b3b3;
+  border-radius: 6px;
+  padding: 12px 14px;
+  font-size: 15px;
+  color: #333333;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+
+.input-group input:focus {
+  border-color: #82a0f6;
+}
+
+/* Save Form Changes Button */
+.modal-save-btn {
+  background-color: #82a0f6;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 32px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  align-self: center; /* Center balances the form base exactly like Image 2 */
+  transition: background-color 0.2s;
+}
+
+.modal-save-btn:hover {
+  background-color: #6a8be7;
+}
+
+/* ==========================================
+   ADDRESS MODAL VERTICAL SPECIFIC STYLING
+   ========================================== */
+
+/* Tightens max container width configuration matching image layout rules */
+.address-modal-width {
+  max-width: 480px;
+  width: 90%;
+  padding: 36px 36px 28px 36px;
+}
+
+/* Form Bold Header Title Alignment adjustment */
+.modal-title-bold {
+  font-size: 24px;
+  font-weight: 700;
+  color: #000000;
+  margin: 0 0 24px 0;
+  letter-spacing: -0.3px;
+}
+
+/* Creates clean stacked items layout flow architecture */
+.form-vertical-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+/* Ensures save changes execution action block sits snugly at form base center */
+.address-submit-btn {
+  margin-top: 10px;
+  width: auto;
+  min-width: 150px;
+  align-self: center;
+}
+/* ==========================================
+   5. RESPONSIVE SCALE MEDIA OVERRIDES
+   ========================================== */
+@media (max-width: 680px) {
+  .info-data-grid,
+  .form-grid {
+    grid-template-columns: 1fr; /* Stack inputs cleanly on tighter viewports */
+    row-gap: 18px;
+  }
+  .modal-card {
+    padding: 24px;
+    margin: 16px;
+  }
+}

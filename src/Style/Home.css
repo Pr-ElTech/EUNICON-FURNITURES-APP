@@ -27,6 +27,8 @@
   transform: translate(-50%, -50%);
   text-align: center;
   width: 80%;
+  font-family: sans-serif;
+  color: white;
 }
 
 .home-hero-overlay h1 {

@@ -8,27 +8,31 @@
     sans-serif;
   display: flex;
   flex-direction: column;
-  box-sizing: border-box;
-}
-
-/* Gray background housing the product image matching your Figma mockup */
-.product-image-container {
-  width: 100%;
-  height: 240px;
-  background-color: #dbdad6;
-  border-radius: 12px;
-  position: relative;
-  display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
+  border-radius: 12px;
+  box-sizing: border-box;
+  background-color: green;
 }
 
-.product-image {
+/* Container housing the product image */
+.product-image-container {
   width: 100%;
-  height: 100%;
-  object-fit: fill;
+  height: 200px; /* Adjusted height slightly to look cleaner with full-bleed layout */
+  background-color: #142acf; /* Clean light background color fallback */
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden; /* Keeps the image corners perfectly rounded inside the card */
+
+  .product-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: fill; /* Kept exactly as fill per your request */
+  }
 }
+
+/* Forced full-bleed image alignment rules */
 
 /* Floating Wishlist Button */
 .wishlist-btn {
@@ -45,6 +49,7 @@
   align-items: center;
   cursor: pointer;
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.05);
+  z-index: 2; /* Ensures it floats safely over the full-bleed image background */
 }
 
 .heart-icon {
@@ -89,7 +94,7 @@
 .current-price {
   font-size: 15px;
   font-weight: 600;
-  color: #bd1c1c; /* Distinct red text style for current pricing */
+  color: #bd1c1c;
 }
 
 /* Right-aligned action buttons container */
@@ -112,7 +117,7 @@
 
 /* Native styling for your custom BlogBtn element */
 .buy-now-btn {
-  background-color: #6c91ec; /* Custom periwinkle blue color theme */
+  background-color: #6c91ec;
   color: #ffffff;
   border: none;
   padding: 8px 24px;

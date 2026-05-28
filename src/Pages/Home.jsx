@@ -1,29 +1,33 @@
-import React from "react";
-import "../Style/Home.css"; // Ensure this stylesheet handles your home classes
+import React, { useState, useEffect } from "react";
+import "../Style/Home.css";
 import HeroHeader from "../Components/HeroHeader";
 import Herofooter from "../Components/HeroFooter";
 import ProductCard from "../Components/ProductCard";
+import { getAllProducts } from "./Config/AxiosInstance";
 
-// Asset Imports (Make sure these match your project directory paths)
-import MainHeroBedImg from "../Assets/ProductChairHero.jpg"; // Your top hero slide asset
-import { headerMiddle } from "../JS/Header"; // Or wherever your static home inventory data lives
+// Asset Imports
+import MainHeroBedImg from "../Assets/ProductChairHero.jpg";
 
 const Home = () => {
-  // Pull your standard display items list directly from your JS data config structure
-  // For example, combining items or targeting a master product array
-  const allProducts =
-    headerMiddle?.flatMap(
-      (section) =>
-        section.categories?.slice(0, 10).flatMap((cat) => cat.items || []) ||
-        [],
-    ) || [];
+  // State to store all products fetched from the API
+  const [allProducts, setAllProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Fetch products when the component first loads
+  useEffect(() => {
+    const fetchProducts = async () => {
+      setIsLoading(true);
+      const products = await getAllProducts();
+      setAllProducts(products);
+      setIsLoading(false);
+    };
+
+    fetchProducts();
+  }, []);
 
   return (
     <div className="home-page-container">
-      {/* 1. Global Navigation Bar Header */}
       <HeroHeader />
-
-      {/* 2. Full Width Hero Spotlight Banner */}
       <div className="home-hero-section">
         <img
           src={MainHeroBedImg}
@@ -42,24 +46,26 @@ const Home = () => {
         </div>
       </div>
 
-      {/* 3. Main Product Inventory Display Section */}
       <main className="home-products-section">
         <div className="home-section-heading">
           <h2>Explore Our Collections</h2>
         </div>
 
         <div className="products-grid-layout">
-          {allProducts.length > 0 ? (
-            allProducts.map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))
+          {isLoading ? (
+            <p className="no-items">Loading products...</p>
+          ) : allProducts.length > 0 ? (
+            allProducts
+              .slice(0, 8)
+              .map((product) => (
+                <ProductCard key={product.id} product={product} />
+              ))
           ) : (
             <p className="no-items">Fresh design pieces arriving soon!</p>
           )}
         </div>
       </main>
 
-      {/* 4. Service Highlight Row (Our Artisans Services) */}
       <section className="artisans-services-section">
         <div className="home-section-heading">
           <h2>Our Artisans Services</h2>
