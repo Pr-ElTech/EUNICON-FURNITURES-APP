@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./Pages/Home";
 import Login from "./Pages/Login";
 import Blog from "./Pages/Blog";
+import PrivateRoute from "./Routes/PrivateRoute";
 import About from "./Pages/About";
 import SignupPage from "./Pages/SignupPage";
 import CategoryPage from "./Pages/CategoryPage";
@@ -20,7 +21,14 @@ import CustomFurniturePage from "./Components/CustomFurniturePage";
 import Checkout from "./Components/Checkout";
 import CartPage from "./Pages/CartPage";
 import CheckoutPage from "./Pages/CheckoutPage";
-import ProfessionalCard from "./Components/ProfessionalCard"
+import ProfessionalCard from "./Components/ProfessionalCard";
+import WatchList from "./Pages/WatchList";
+import ProductDetail from "./Components/ProductDetail";
+import ProfilePage from "./Pages/ProfilePage";
+import EditInfoModal from "./Components/EditInfoModal";
+import EditAdress from "./Components/EditAddress";
+import PagenotFound from "./Pages/PagenotFound";
+
 // import Service from "./Pages/Service"; // Imported and now correctly mapped below
 
 const App = () => {
@@ -28,16 +36,16 @@ const App = () => {
     <BrowserRouter>
       <Routes>
         {/* Public Authentication Routes */}
+        <Route path="*" element={<PagenotFound />} />
         <Route path="/" element={<Login />} />
         <Route path="/register" element={<SignupPage />} />
 
         {/* Public Content Routes */}
         <Route path="/about" element={<About />} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/checkout" element={<CheckoutPage />} />
-        <Route path="/professionalCard" element={<ProfessionalCard/>} />
-
-        
+        <Route path="/professionalCard" element={<ProfessionalCard />} />
 
         <Route
           path="/CartPage"
@@ -128,14 +136,6 @@ const App = () => {
           }
         />
 
-        <Route
-          path="/ConfirmationPage"
-          element={
-            <PrivateRoute>
-              <ConfirmationPage />
-            </PrivateRoute>
-          }
-        />
         <Route
           path="/category/:categoryId"
           element={

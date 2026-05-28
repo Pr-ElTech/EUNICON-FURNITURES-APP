@@ -1,0 +1,97 @@
+/* ==========================================================================
+   404 Page Card Stylesheet
+   ========================================================================== */
+
+/* Fullscreen viewport container centering the card layout */
+.notfound-viewport {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  background-color: #f9f9f9; /* Soft minimalist light gray background */
+  padding: 20px;
+  box-sizing: border-box;
+  font-family: "Poppins", "Inter", sans-serif;
+}
+
+/* Elegant geometric centerpiece card */
+.notfound-card {
+  background: #ffffff;
+  max-width: 480px;
+  width: 100%;
+  padding: 45px 35px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* Premium feather-soft shadow */
+  border: 1px solid #eaeaea;
+  transition: transform 0.3s ease;
+}
+
+.notfound-card:hover {
+  transform: translateY(-4px); /* Interactive subtle elevation pop */
+}
+
+/* Bold premium typography design for the 404 counter */
+.notfound-code {
+  font-size: 5.5rem;
+  font-weight: 800;
+  margin: 0;
+  line-height: 1;
+  color: #003df5; /* Warm dark gray slate */
+  letter-spacing: -2px;
+}
+
+/* Content messaging layout */
+.notfound-body {
+  margin-top: 20px;
+}
+
+.notfound-title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #0040ff;
+  margin-bottom: 12px;
+}
+
+.notfound-text {
+  font-size: 0.95rem;
+  color: #666666;
+  line-height: 1.6;
+  margin: 0 auto 25px auto;
+  max-width: 90%;
+}
+
+/* Styled premium Call-To-Action Link Button */
+.notfound-home-link {
+  display: inline-block;
+  background-color: #4f73df; /* Matches your core website theme button actions */
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 12px 32px;
+  border-radius: 6px;
+  transition: all 0.25s ease-in-out;
+  box-shadow: 0 4px 12px rgba(44, 44, 44, 0.15);
+}
+
+/* Smooth button interactivity hover transitions */
+.notfound-home-link:hover {
+  background-color: #1e4edf;
+  transform: scale(1.02);
+  box-shadow: 0 6px 16px rgba(17, 17, 17, 0.25);
+}
+
+/* Mobile responsive scaling optimization */
+@media (max-width: 480px) {
+  .notfound-card {
+    padding: 35px 20px;
+  }
+  .notfound-code {
+    font-size: 4rem;
+  }
+  .notfound-title {
+    font-size: 1.35rem;
+  }
+}
