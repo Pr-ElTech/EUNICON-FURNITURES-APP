@@ -278,6 +278,14 @@ const SignupPage = () => {
           text={isLoading ? "Creating..." : "Create"}
           disabled={isLoading}
         />
+        <div className="form-footer-links">
+          <Link to="/" className="form-link">
+            Don't have an account? Login
+          </Link>
+          <Link to="/home" className="form-link back-home">
+            Back to Home
+          </Link>
+        </div>
       </form>
     </div>
   );

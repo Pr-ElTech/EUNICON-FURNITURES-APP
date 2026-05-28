@@ -14,28 +14,26 @@ const CategoryPage = () => {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  // Fetch products by collection when component loads
   useEffect(() => {
     const fetchCollectionProducts = async () => {
       setIsLoading(true);
       try {
-        // 1. Fetch all products directly inside the component
         const response = await axiosInstance.get("/allProduct");
-
-        // 2. Extract the data array safely
         const allItems =
           response.data.products || response.data.data || response.data || [];
 
-        // 3. Filter items to match the current categoryId from the URL params
-        const filteredProducts = allItems.filter(
-          (product) =>
-            product.category?.toLowerCase().trim() ===
-            categoryId?.toLowerCase().trim(),
-        );
+        // Defensively checks both 'collections' and 'collection' keys from your schema
+        const filteredProducts = allItems.filter((product) => {
+          const itemCategory = product.collections || product.collection;
+          return (
+            itemCategory?.toLowerCase().trim() ===
+            categoryId?.toLowerCase().trim()
+          );
+        });
 
         setProducts(filteredProducts);
       } catch (error) {
-        console.error("❌ Error fetching collection products inline:", error);
+        console.error("❌ Error filtering collection products:", error);
         setProducts([]);
       } finally {
         setIsLoading(false);
