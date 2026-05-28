@@ -19,13 +19,9 @@ import AddToCart from "./Pages/AddToCart";
 import CustomFurniturePage from "./Components/CustomFurniturePage";
 import Checkout from "./Components/Checkout";
 import CartPage from "./Pages/CartPage";
-import ConfirmationPage from "./Components/ConfirmationPage";
-import ProductDetail from "./Components/ProductDetail";
-import EditInfoModal from "./Components/EditInfoModal";
-import ProfilePage from "./Pages/ProfilePage";
-import EditAdress from "./Components/EditAddress";
-import WatchList from "./Pages/WatchList";
-import PrivateRoute from "./Routes/PrivateRoute";
+import CheckoutPage from "./Pages/CheckoutPage";
+import ProfessionalCard from "./Components/ProfessionalCard"
+// import Service from "./Pages/Service"; // Imported and now correctly mapped below
 
 const App = () => {
   return (
@@ -38,16 +34,10 @@ const App = () => {
         {/* Public Content Routes */}
         <Route path="/about" element={<About />} />
         <Route path="/blog" element={<Blog />} />
-        <Route path="/home" element={<Home />} />
-        {/* Private Content Routes */}
-        <Route
-          path="/checkout"
-          element={
-            // <PrivateRoute>
-            <Checkout />
-            // </PrivateRoute>
-          }
-        />
+        <Route path="/checkout" element={<CheckoutPage />} />
+        <Route path="/professionalCard" element={<ProfessionalCard/>} />
+
+        
 
         <Route
           path="/CartPage"
