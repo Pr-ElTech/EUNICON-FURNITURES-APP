@@ -1,21 +1,24 @@
-import axios from "axios"
-import { promise } from "zod"
-import process from "zod/v4/core"
+import axios from "axios";
 
 const axiosInstance = axios.create({
-    baseURL: import.meta.env.VITE_API_URL,
-    headers: {
-        "Content-Type": "application/json"
-    }
-})
+  baseURL:
+    import.meta.env.VITE_BASE_URL ||
+    "https://eunicon-furnitures-1.onrender.com/api/v1",
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
 
+// Automatically attaches token from localStorage to outgoing requests
 axiosInstance.interceptors.request.use(
-    config=>{
-        const token = Store.getState().user?.token
-        if(token){
-            config.headers.Authorization =`Bearer ${token}`
-        }
-        return config;
-    },
-    error=>promise.reject(error)
-)
+  (config) => {
+    const token = localStorage.getItem("authToken");
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+  },
+  (error) => Promise.reject(error),
+);
+
+export default axiosInstance;

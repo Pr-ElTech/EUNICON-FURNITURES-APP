@@ -1,0 +1,228 @@
+/* ==========================================
+   GLOBAL HULL STRUCTURES
+   ========================================== */
+.wishlist-page-hull {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* ==========================================
+   POPULATED STATE LAYOUT ELEMENTS (image_ea7c54.png)
+   ========================================== */
+.wishlist-populated-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Hero bed display element matching layout rules verbatim */
+.wishlist-hero-banner {
+  width: 100%;
+  height: 380px;
+  background-image: url("https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=1200&q=80");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  margin-top: 70px; /* Offset to slide out cleanly beneath navigation components */
+}
+
+.wishlist-banner-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.35); /* Tinting shadow */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.back-nav-link {
+  background: none;
+  border: none;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 28px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* Section grid layouts block configuration */
+.wishlist-content-area {
+  width: 100%;
+  max-width: 1120px;
+  padding: 48px 24px 80px 24px;
+  box-sizing: border-box;
+}
+
+.wishlist-main-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1a1a1a;
+  text-align: left;
+  margin: 0 0 16px 0;
+}
+
+.wishlist-divider-line {
+  border: none;
+  border-top: 1px solid #e2e8f0;
+  margin: 0 0 32px 0;
+}
+
+.wishlist-products-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    4,
+    1fr
+  ); /* Accommodates multiple responsive dimensions up to 4 columns */
+  gap: 32px;
+  width: 100%;
+}
+
+.wishlist-grid-item-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Remove button sitting above item card stack */
+.remove-action-trigger {
+  background: none;
+  border: none;
+  color: #94a3b8;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 12px;
+  transition: color 0.15s ease;
+}
+
+.remove-action-trigger:hover {
+  color: #ef4444;
+}
+
+/* See More outline box button positioning definitions */
+.pagination-action-row {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 40px;
+}
+
+.button-more-outline {
+  background: #ffffff;
+  border: 1px solid #1e293b;
+  color: #1e293b;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 8px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.button-more-outline:hover {
+  background: #1e293b;
+  color: #ffffff;
+}
+
+/* ==========================================
+   EMPTY STATE LAYOUT ELEMENTS (image_e93ff6.png)
+   ========================================== */
+.wishlist-empty-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 24px 100px 24px;
+  box-sizing: border-box;
+}
+
+.empty-state-card-view {
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.empty-heart-icon-wrapper {
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.empty-state-headline {
+  font-size: 32px;
+  font-weight: 800;
+  color: #000000;
+  margin: 0 0 16px 0;
+  letter-spacing: -0.5px;
+}
+
+.empty-state-subtext {
+  font-size: 14px;
+  color: #64748b;
+  line-height: 1.6;
+  max-width: 460px;
+  margin: 0 0 32px 0;
+}
+
+.return-shop-btn {
+  background-color: #81a7f3;
+  color: #ffffff;
+  border: none;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 14px 40px;
+  border-radius: 6px;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  transition: background-color 0.15s ease;
+  box-shadow: 0px 4px 12px rgba(129, 167, 243, 0.25);
+}
+
+.return-shop-btn:hover {
+  background-color: #618ee0;
+}
+
+/* ==========================================
+   RESPONSIVE MEDIA SYSTEM QUERIES
+   ========================================== */
+@media (max-width: 1024px) {
+  .wishlist-products-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .wishlist-products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .empty-state-headline {
+    font-size: 24px;
+  }
+  .wishlist-hero-banner {
+    height: 260px;
+  }
+}
+
+@media (max-width: 480px) {
+  .wishlist-products-grid {
+    grid-template-columns: 1fr;
+  }
+}

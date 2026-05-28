@@ -1,0 +1,203 @@
+/* ==========================================
+   GLOBAL CONTAINMENT WRAPPERS
+   ========================================== */
+.product-detail-page {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  box-sizing: border-box;
+}
+
+/* Centralized Grid Wrapper: Clears room for absolute nav elements cleanly */
+.product-detail-container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 150px 40px 100px 40px; /* Top padding isolates fixed navigation layer */
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* splits columns beautifully down the screen center line */
+  gap: 60px;
+  align-items: center;
+  flex: 1;
+  box-sizing: border-box;
+}
+
+/* ==========================================
+   LEFT ASPECT PANEL: ARTWORK INTERFACES
+   ========================================== */
+.product-image-frame {
+  width: 100%;
+  aspect-ratio: 1 / 1; /* Retains clean square geometric aspect ratios */
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.05);
+}
+
+.showcase-display-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ==========================================
+   RIGHT ASPECT PANEL: DESCRIPTION COPY
+   ========================================== */
+.product-info-panel {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.product-main-title {
+  font-size: 44px;
+  font-weight: 700;
+  color: #000000;
+  margin: 0 0 16px 0;
+  letter-spacing: -0.5px;
+}
+
+.product-price-tag {
+  font-size: 36px;
+  font-weight: 700;
+  color: #ff0000; /* Exact vibrant alert red price tag styling choice from Figma mockup */
+  margin: 0 0 24px 0;
+}
+
+.product-description-prose {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #333333;
+  margin: 0 0 10px 0;
+  font-weight: 400;
+}
+
+.read-more-trigger {
+  color: #929292;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-bottom: 40px;
+  align-self: flex-start;
+  transition: color 0.2s;
+}
+
+.read-more-trigger:hover {
+  color: #000000;
+  text-decoration: underline;
+}
+
+/* ==========================================
+   ACTION STEPPER CONTROLLER COMPONENT BLOCK
+   ========================================== */
+.purchase-controls-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+/* Box Stepper Hull Frame Components */
+.stepper-counter-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: 1px solid #7a7a7a;
+  background-color: #ffffff;
+  height: 52px;
+  box-sizing: border-box;
+}
+
+.stepper-btn {
+  background: none;
+  border: none;
+  width: 44px;
+  height: 100%;
+  font-size: 20px;
+  color: #000000;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.15s;
+}
+
+.stepper-btn:hover {
+  background-color: #f5f5f5;
+}
+
+.stepper-count-value {
+  padding: 0 16px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #000000;
+  border-left: 1px solid #7a7a7a;
+  border-right: 1px solid #7a7a7a;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+}
+
+/* Core Form Submission Anchors */
+.action-btn {
+  height: 52px;
+  padding: 0 35px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+/* Soft Accent Blue Fill Brand Variant Buttons */
+.buy-now-btn {
+  background-color: #82a0f6;
+  color: #ffffff;
+  border: none;
+  flex: 1;
+  max-width: 160px;
+}
+
+.buy-now-btn:hover {
+  background-color: #6a8be7;
+  box-shadow: 0 4px 12px rgba(130, 160, 246, 0.2);
+}
+
+/* Outlined Clean Secondary Action Buttons */
+.add-to-cart-btn {
+  background-color: #ffffff;
+  color: #000000;
+  border: 1px solid #000000;
+  flex: 1;
+  max-width: 180px;
+}
+
+.add-to-cart-btn:hover {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+/* ==========================================
+   TABLET & MOBILE VISUAL ADJUSTMENT OVERRIDES
+   ========================================== */
+@media (max-width: 850px) {
+  .product-detail-container {
+    grid-template-columns: 1fr; /* Forces page into single structural scrolling flow stream */
+    gap: 40px;
+    padding-top: 120px;
+  }
+  .product-main-title {
+    font-size: 32px;
+  }
+}

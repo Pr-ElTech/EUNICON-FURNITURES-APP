@@ -1,67 +1,63 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
+import { useNavigate } from "react-router-dom";
 import "../Style/HeaderHero.css";
 import { headerMiddle } from "../JS/Header";
 import EuniconPrjLogo from "../Assets/EuniconPrjLogo.png";
+
 import { CiHeart, CiSearch, CiUser } from "react-icons/ci";
 import { BsCart2 } from "react-icons/bs";
 
 const HeroHeader = () => {
   const [openDropdown, setOpenDropdown] = useState(null);
+
   const navigate = useNavigate();
 
-  // Smart routing controller
+  // HANDLE NAVIGATION + DROPDOWN
   const handleNavClick = (item) => {
+    // IF ITEM HAS DROPDOWN
     if (item.categories && item.categories.length > 0) {
-      // If it has a sub-menu array, open/close the dropdown container
       setOpenDropdown(openDropdown === item.id ? null : item.id);
-    } else if (item.path) {
-      // If it's a standalone structural route link, navigate right to it!
-      navigate(item.path);
-      setOpenDropdown(null);
     } else {
-      // Fallback clean conversion string if path isn't explicitly defined in data
-      navigate(`/${item.category.toLowerCase().trim()}`);
+      // NORMAL ROUTE
+      navigate(`/${item.category.toLowerCase()}`);
       setOpenDropdown(null);
     }
+  };
+
+  // HANDLE SUB MENU CLICK
+  const handleSubMenuClick = (sub) => {
+    navigate(`/category/${sub.id}`);
+    setOpenDropdown(null);
   };
 
   return (
     <div className="header">
       <section className="header-Wrapper">
-        {/* Brand Logo - Clicking redirects right back to the central hub */}
-        <div
-          className="header-left-logo"
-          onClick={() => navigate("/home")}
-          style={{ cursor: "pointer" }}
-        >
-          <img src={EuniconPrjLogo} alt="Eunicon Logo" />
+        {/* LOGO */}
+        <div className="header-left-logo" onClick={() => navigate("/")}>
+          <img src={EuniconPrjLogo} alt="Logo" />
         </div>
 
-        {/* Center Navbar Controls Selection Matrix */}
+        {/* NAVBAR */}
         <div className="header-center">
           {headerMiddle.map((item) => (
-            <div
-              className="nav-item"
-              key={item.id}
-              onClick={() => handleNavClick(item)}
-              onMouseLeave={() => setOpenDropdown(null)}
-              style={{ position: "relative" }}
-            >
-              <span className="nav-link-text">{item.category}</span>
+            <div className="nav-item" key={item.id}>
+              {/* MAIN NAV */}
+              <div
+                className="nav-link-text"
+                onClick={() => handleNavClick(item)}
+              >
+                {item.category}
+              </div>
 
-              {/* Nested Dropdown Sub-menu Container Rendering */}
+              {/* DROPDOWN */}
               {item.categories && openDropdown === item.id && (
                 <div className="dropdown-menu">
                   {item.categories.map((sub) => (
                     <div
                       key={sub.id}
                       className="dropdown-item"
-                      onClick={(e) => {
-                        e.stopPropagation(); // Stops parent container click from firing twice
-                        navigate(`/category/${sub.id}`);
-                        setOpenDropdown(null);
-                      }}
+                      onClick={() => handleSubMenuClick(sub)}
                     >
                       {sub.name}
                     </div>
@@ -72,22 +68,18 @@ const HeroHeader = () => {
           ))}
         </div>
 
-        {/* Right Corner: Utility Profile Triggers & Action Links */}
+        {/* RIGHT SIDE */}
         <div className="header-right">
-          <div
-            className="Profile-Bar"
-            onClick={() => navigate("/profile")}
-            style={{ cursor: "pointer" }}
-          >
-            <CiUser className="Icon" /> Peculiar
+          <div className="Profile-Bar" onClick={() => navigate("/profile")}>
+            <CiUser className="Icon" />
+            Peculiar
           </div>
+
           <CiSearch className="Icon" />
-          <CiHeart className="Icon" />
-          <BsCart2
-            className="Icon"
-            onClick={() => navigate("/checkout")}
-            style={{ cursor: "pointer" }}
-          />
+
+          <CiHeart className="Icon" onClick={() => navigate("/watchlist")} />
+
+          <BsCart2 className="Icon" onClick={() => navigate("/addtocart")} />
         </div>
       </section>
     </div>

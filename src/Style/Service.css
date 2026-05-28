@@ -1,123 +1,120 @@
-.service_page {
+/* ==========================================
+   1. GLOBAL CONTAINER RESET & ALIGNMENT
+   ========================================== */
+.service_page_wrapper {
   width: 100%;
-  height: auto;
-  background-color: #FFFFFF;
-  margin-top: 90px;
-  padding: 20px;
-  text-align: center;
+  min-height: 100vh;
+  background-color: #ffffff;
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
-}
-.inner_service_page {
-  width: 90%;
-  height: 400px;
-  background-color: #F7F8FF;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  text-align: center;
-}
-.header-title {
-  width: 90%;
-  height: 60px;
-  background-color: #F7F8FF;
-  display: flex;
-  justify-content: space-between;
-}
-.title-about {
-  width: 30%;
-  height: 100%;
-  border-radius: 8px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 18px;
-  font-weight: bold;
-}
-.title-service {
-  width: 30%;
-  height: 100%;
-  background-color: #81A7F3;
-  color: white;
-  border-radius: 8px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 18px;
-  font-weight: bold;
-}
-.service {
-    width: 90%;
-    height: 230px;
-    background-color: #F7F8FF;
-    padding-top: 40px;
-    text-align: center;
-    font-size: 30px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-.explore {
-  width: 90%;
-  height: 150px;
-  background-color: #F7F8FF;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  font-size: 24px;
-  font-weight: bold;
-}
-.products{
-    width: 90%;
-    height: 1200px;
-    background-color: #F7F8FF;
-}
-.products-container {
-  width: 90%;
-  margin: 0 auto;
-  padding: 60px 20px;
+  align-items: center; /* Keeps all children horizontally centered */
+  box-sizing: border-box;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
-.products-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 3fr);
-  gap: 30px;
-  justify-items: center;
+/* Base structural block wrapper for each row section */
+.artisan-showcase-container,
+.tab-navigation-bar-container,
+.biography-text-section,
+.contact-form-layout-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+/* ==========================================
+   2. TOP AREA: ARTISAN SHOWCASE CARD
+   ========================================== */
+.artisan-showcase-container {
+  padding: 130px 24px 32px 24px; /* Generous top padding so it doesn't hide under fixed headers */
+}
+
+.inner_service_page {
+  width: 100%;
+  max-width: 1000px;
+  box-sizing: border-box;
+}
+
+/* ==========================================
+   3. NAVIGATION TAB LINKS BAR
+   ========================================== */
+.tab-navigation-bar-container {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  margin-bottom: 40px;
+}
+
+.tab-navigation-inner {
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: row;
+}
+
+.nav-tab-item {
+  flex: 1;
+  height: 52px;
+  background: none;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  color: #64748b;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  border-bottom: 3px solid transparent;
+}
+
+/* Active Highlight Blue Pill Accent Selection */
+.nav-tab-item.active-tab {
+  background-color: #81a7f3;
+  color: #ffffff;
+}
+
+/* ==========================================
+   4. MIDDLE AREA: BIOGRAPHY DESCRIPTIONS
+   ========================================== */
+.biography-text-section {
+  padding: 0 24px 48px 24px;
+}
+
+.biography-text-inner {
+  width: 100%;
+  max-width: 1000px;
+  text-align: left;
+}
+
+.biography-text-inner p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #334155;
+  margin: 0 0 20px 0;
+}
+
+/* ==========================================
+   5. BOTTOM AREA: SPLIT CONTACT GRID
+   ========================================== */
+.contact-form-layout-section {
+  padding: 0 24px 100px 24px;
 }
 
 .contact-container {
   display: flex;
-  width: 90%;
-  margin: 0 auto;
-  background-color: #F7F8FF;
+  flex-direction: row;
+  width: 100%;
+  max-width: 1000px;
   gap: 40px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  padding: 20px;
   box-sizing: border-box;
 }
 
+/* Left Form Box Column Alignment */
 .contact-form-side {
   flex: 1;
-}
-
-.contact-info-side {
-  flex: 1;
-  background: linear-gradient(135deg, #cbdcf7 0%, #a3bded 100%);
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 40px;
-  text-align: center;
-  box-sizing: border-box;
-}
-
-.info-text {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #1e293b;
-  line-height: 1.4;
-  margin: 0;
+  width: 50%;
 }
 
 form {
@@ -140,44 +137,95 @@ form {
   flex: 1;
 }
 
-input, textarea {
+/* Beautiful Input Box Overhaul */
+input,
+textarea {
   width: 100%;
-  padding: 12px 16px;
-  border: 1px solid #cccccc;
-  border-radius: 8px;
-  font-size: 0.95rem;
-  color: #333333;
+  padding: 14px 16px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #1e293b;
   outline: none;
   background-color: #ffffff;
   box-sizing: border-box;
-  transition: border-color 0.2s;
+  font-family: inherit;
 }
 
-input:focus, textarea:focus {
-  border-color: #6495ed;
+input:focus,
+textarea:focus {
+  border-color: #81a7f3;
 }
 
-input::placeholder, textarea::placeholder {
-  color: #999999;
+input::placeholder,
+textarea::placeholder {
+  color: #94a3b8;
 }
 
 textarea {
-  resize: vertical;
+  resize: none;
 }
 
+/* Call To Action Form Button */
 .submit-btn {
-  background-color: #6495ed;
+  background-color: #81a7f3;
   color: #ffffff;
   border: none;
-  padding: 12px 32px;
-  font-size: 0.95rem;
+  padding: 14px 36px;
+  font-size: 14px;
   font-weight: 600;
-  border-radius: 8px;
+  border-radius: 6px;
   cursor: pointer;
   align-self: flex-start;
-  transition: background-color 0.2s;
+  transition: background-color 0.2s ease;
 }
 
 .submit-btn:hover {
-  background-color: #4f83e3;
+  background-color: #618ee0;
+}
+
+/* Right Side Blue Accent Informational Box Panel */
+.contact-info-side {
+  flex: 1;
+  width: 50%;
+  background: linear-gradient(180deg, #e0ebff 0%, #b8d2ff 100%);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.info-text {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1e293b;
+  line-height: 1.4;
+  margin: 0;
+  max-width: 320px;
+}
+
+/* ==========================================
+   6. RESPONSIVE BREAKPOINTS SETUP
+   ========================================== */
+@media (max-width: 768px) {
+  .contact-container {
+    flex-direction: column-reverse; /* Form stays on top inside small device viewports */
+    gap: 32px;
+  }
+
+  .contact-form-side,
+  .contact-info-side {
+    width: 100%;
+  }
+
+  .contact-info-side {
+    padding: 40px 20px;
+  }
+
+  .info-text {
+    font-size: 20px;
+  }
 }
