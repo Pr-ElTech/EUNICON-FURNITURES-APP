@@ -1,32 +1,28 @@
-/* --- Main Footer Container --- */
 .footer {
   width: 100%;
-  background-color: #f8fafc; /* Very soft, clean off-white background as shown in Figma */
+  background-color: #f8fafc;
   display: flex;
   justify-content: center;
-  font-family: "Inter", sans-serif; /* Cleaner modern sans-serif stack */
-  padding: 80px 0 40px 0; /* Padding for uniform vertical clearance */
+  font-family: "Inter", sans-serif;
+  padding: 80px 0 40px 0;
   box-sizing: border-box;
 }
 
-/* --- Content Wrapper Container --- */
 .footer-wrapper {
-  width: 85%; /* Snaps content to center bounds safely away from viewport screen edges */
+  width: 85%;
   display: flex;
   flex-direction: column;
-  gap: 60px; /* Space separating top content grid from bottom legal row */
+  gap: 60px;
 }
 
-/* --- Top Flex Grid (Row Side-By-Side Layout) --- */
 .footer-top {
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between; /* Spreads layout sections edge-to-edge evenly */
-  align-items: flex-start; /* Keeps titles perfectly leveled across columns */
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
-/* --- Left Column: Identity & Branding --- */
 .footer-left {
   width: 20%;
   display: flex;
@@ -50,30 +46,28 @@
 
 .footer-Icon {
   font-size: 20px;
-  color: #0f172a; /* Slate black iconic colors */
+  color: #0f172a;
   cursor: pointer;
   transition: color 0.2s ease;
 }
 
 .footer-Icon:hover {
-  color: #7499ff; /* Subtle micro-interaction fallback */
+  color: #7499ff;
 }
 
-/* --- Center Column: Nav Links Groups --- */
 .footer-center {
   width: 45%;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  gap: 100px; /* Strong horizontal spacing between 'Quick Links' and 'Products' text arrays */
+  gap: 100px;
 }
 
-/* --- Right Column: Input Box Subscription Wrapper --- */
 .footer-right {
   width: 30%;
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* Overridden from center alignment back to clean left flush */
+  align-items: flex-start;
   gap: 20px;
 }
 
@@ -95,7 +89,7 @@
 
 .newsletter-box input {
   height: 52px;
-  flex: 1; /* Scales dynamically based on layout box dimensions */
+  flex: 1;
   max-width: 260px;
   border-radius: 6px;
   border: 1px solid #cbd5e1;
@@ -122,10 +116,10 @@
   border: none;
   border-radius: 6px;
 }
-/* --- Bottom Section (Horizontal Line & Copyright Row) --- */
+
 .footer-bottom {
   width: 100%;
-  border-top: 1px solid #e2e8f0; /* Crisp subtle separator rule line from the figma viewport */
+  border-top: 1px solid #e2e8f0;
   padding-top: 25px;
   display: flex;
   justify-content: center;
@@ -137,4 +131,65 @@
   color: #64748b;
   margin: 0;
   font-weight: 400;
+}
+
+@media screen and (max-width: 1024px) {
+  .footer-center {
+    gap: 50px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .footer {
+    padding: 60px 0 30px 0;
+  }
+
+  .footer-wrapper {
+    gap: 40px;
+  }
+
+  .footer-top {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .footer-left,
+  .footer-center,
+  .footer-right {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .footer-center {
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  .newsletter-box input {
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .footer-center {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .newsletter-box {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .newsletter-box input,
+  .subscribe-btn {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .footer-bottom p {
+    text-align: center;
+  }
 }
