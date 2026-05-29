@@ -6,11 +6,21 @@ import EuniconProductCard from "../Components/EuniconProductCard";
 import axiosInstance from "./Config/AxiosInstance";
 import MainHeroBedImg from "../Assets/ProductChairHero.jpg";
 import Artisans from "../Components/Artisans";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Home = () => {
   const [allProducts, setAllProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
+  // 1. Initialize the navigation hook
+  const navigate = useNavigate();
+
+  // 2. Correctly extract your logged-in user state from Redux slice store
+  // (Adjust state.auth.user depending on how you named your auth slice reducer)
+  const user = useSelector((state) => state.auth?.user);
+
+  // 3. Keep the useEffect block completely separate and dedicated to data fetching
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -18,7 +28,7 @@ const Home = () => {
 
         const response = await axiosInstance.get("/allProduct");
 
-        // 💡 Add response.data.users here to read your backend key
+        // 💡 Read the proper payload array using fallback chaining
         const productsData =
           response.data.users ||
           response.data.products ||
@@ -36,6 +46,7 @@ const Home = () => {
         setIsLoading(false);
       }
     };
+
     fetchProducts();
   }, []);
 
@@ -54,7 +65,12 @@ const Home = () => {
             <br />
             Timeless Furniture
           </h1>
-          <button className="home-hero-btn" type="button">
+          {/* 4. Fixed the onClick handler to route somewhere valid */}
+          <button
+            className="home-hero-btn"
+            type="button"
+            onClick={() => navigate("/shop")}
+          >
             Buy Now
           </button>
         </div>

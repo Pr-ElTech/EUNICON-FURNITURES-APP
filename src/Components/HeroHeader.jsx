@@ -14,8 +14,10 @@ const HeroHeader = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const { userDetails, token } = useSelector((state) => state.user);
+  const { userDetail, token } = useSelector((state) => state.user);
   const isAuthenticated = !!token || !!localStorage.getItem("authToken");
+
+  const displayName = userDetail?.firstName || "Peculiar";
 
   const handleNavClick = (item) => {
     if (item.categories && item.categories.length > 0) {
@@ -32,7 +34,6 @@ const HeroHeader = () => {
       else if (sub.id === "hire-artisan") navigate("/service");
       else if (sub.id === "interior-design") navigate("/furniture-service");
     } else {
-      // Normalizes frontend IDs (e.g., 'sofas' or 'chairs') to match backend collection strings ('sofa', 'chair')
       let backendCollectionKey = sub.id;
       if (sub.id === "sofas") backendCollectionKey = "sofa";
       if (sub.id === "chairs") backendCollectionKey = "chair";
@@ -90,9 +91,7 @@ const HeroHeader = () => {
             <>
               <div className="Profile-Bar" onClick={() => navigate("/profile")}>
                 <CiUser className="Icon" />
-                <span>
-                  {userDetails?.name || userDetails?.username || "Peculiar"}
-                </span>
+                <span>{displayName}</span>
               </div>
               <CiSearch className="Icon" />
               <CiHeart
