@@ -16,9 +16,7 @@ const HeroFooter = () => {
   return (
     <footer className="footer">
       <div className="footer-wrapper">
-        {/* Top Section containing all three main data blocks */}
         <div className="footer-top">
-          {/* Left Column: Brand Logo and Horizontal Social Links */}
           <div className="footer-left">
             <img src={fileLogo} alt="EUNICON" className="footer-logo" />
             <div className="Link-icons-ctn">
@@ -30,7 +28,6 @@ const HeroFooter = () => {
             </div>
           </div>
 
-          {/* Center Column: Dynamic Links Generation Mapping */}
           <div className="footer-center">
             {footerElement.slice(0, 2).map((item) => (
               <FooterColumn
@@ -41,7 +38,6 @@ const HeroFooter = () => {
             ))}
           </div>
 
-          {/* Right Column: Newsletter Registration Interface */}
           <div className="footer-right">
             <h3>News Letter</h3>
             <div className="newsletter-box">
@@ -55,7 +51,6 @@ const HeroFooter = () => {
           </div>
         </div>
 
-        {/* Divider and Copyright Area (Matches Figma Mockup) */}
         <div className="footer-bottom">
           <p>© 2026, Eunicon interior Powered by Shopify</p>
         </div>
