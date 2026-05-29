@@ -1,17 +1,22 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { logout } from "../Store/userSlice";
 import "../Style/HeaderHero.css";
 import { headerMiddle } from "../JS/Header";
 import EuniconPrjLogo from "../Assets/EuniconPrjLogo.png";
 
-import { CiHeart, CiSearch, CiUser } from "react-icons/ci";
+import { CiHeart, CiSearch, CiUser, CiLogout } from "react-icons/ci";
 import { BsCart2 } from "react-icons/bs";
 
 const HeroHeader = () => {
   const [openDropdown, setOpenDropdown] = useState(null);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-  // HANDLE NAVIGATION + DROPDOWN FOR MAIN TABS
+  const { userDetails, token } = useSelector((state) => state.user);
+  const isAuthenticated = !!token || !!localStorage.getItem("authToken");
+
   const handleNavClick = (item) => {
     if (item.categories && item.categories.length > 0) {
       setOpenDropdown(openDropdown === item.id ? null : item.id);
@@ -21,33 +26,38 @@ const HeroHeader = () => {
     }
   };
 
-  // HANDLE SUB MENU CLICK
   const handleSubMenuClick = (item, sub) => {
     if (item.category === "Services") {
-      // Direct mapping to your custom page routes from App.jsx
-      if (sub.id === "custom-furniture") {
-        navigate("/custom-furniture");
-      } else if (sub.id === "hire-artisan") {
-        navigate("/Service"); 
-      } else if (sub.id === "interior-design") {
-        navigate("/FurnitureService");
-      }
+      if (sub.id === "custom-furniture") navigate("/custom-furniture");
+      else if (sub.id === "hire-artisan") navigate("/service");
+      else if (sub.id === "interior-design") navigate("/furniture-service");
     } else {
-      // Normal products parameter route
-      navigate(`/category/${sub.id}`);
+      // Normalizes frontend IDs (e.g., 'sofas' or 'chairs') to match backend collection strings ('sofa', 'chair')
+      let backendCollectionKey = sub.id;
+      if (sub.id === "sofas") backendCollectionKey = "sofa";
+      if (sub.id === "chairs") backendCollectionKey = "chair";
+      if (sub.id === "tables") backendCollectionKey = "table";
+      if (sub.id === "beds") backendCollectionKey = "bed";
+      if (sub.id === "rugs") backendCollectionKey = "rug";
+
+      navigate(`/category/${backendCollectionKey}`);
     }
     setOpenDropdown(null);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("authToken");
+    dispatch(logout());
+    navigate("/login");
   };
 
   return (
     <div className="header">
       <section className="header-Wrapper">
-        {/* LOGO */}
         <div className="header-left-logo" onClick={() => navigate("/about")}>
           <img src={EuniconPrjLogo} alt="Logo" />
         </div>
 
-        {/* NAVBAR */}
         <div className="header-center">
           {headerMiddle.map((item) => (
             <div className="nav-item" key={item.id}>
@@ -58,7 +68,6 @@ const HeroHeader = () => {
                 {item.category}
               </div>
 
-              {/* DROPDOWN */}
               {item.categories && openDropdown === item.id && (
                 <div className="dropdown-menu">
                   {item.categories.map((sub) => (
@@ -76,16 +85,42 @@ const HeroHeader = () => {
           ))}
         </div>
 
-        {/* RIGHT SIDE */}
         <div className="header-right">
-          <div className="Profile-Bar" onClick={() => navigate("/Profile")}>
-            <CiUser className="Icon" />
-            Peculiar
-          </div>
-
-          <CiSearch className="Icon" />
-          <CiHeart className="Icon" onClick={() => navigate("/WatchList")} />
-          <BsCart2 className="Icon" onClick={() => navigate("/CartPage")} />
+          {isAuthenticated ? (
+            <>
+              <div className="Profile-Bar" onClick={() => navigate("/profile")}>
+                <CiUser className="Icon" />
+                <span>
+                  {userDetails?.name || userDetails?.username || "Peculiar"}
+                </span>
+              </div>
+              <CiSearch className="Icon" />
+              <CiHeart
+                className="Icon"
+                onClick={() => navigate("/watchlist")}
+              />
+              <BsCart2 className="Icon" onClick={() => navigate("/cart")} />
+              <CiLogout
+                className="Icon logout-btn"
+                onClick={handleLogout}
+                title="Log Out"
+              />
+            </>
+          ) : (
+            <button
+              style={{
+                padding: "20px 35px",
+                backgroundColor: "#7499ff",
+                borderRadius: "5px",
+                border: "none",
+                cursor: "pointer",
+              }}
+              className="header-login-link"
+              onClick={() => navigate("/login")}
+            >
+              Sign In
+            </button>
+          )}
         </div>
       </section>
     </div>

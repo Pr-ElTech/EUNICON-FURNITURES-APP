@@ -6,7 +6,7 @@ const PrivateRoute = ({ children }) => {
 
   const isAuthenticated = !!authToken;
 
-  return isAuthenticated ? children : <Navigate to="/login" replace />;
+  return isAuthenticated ? children : <Navigate to="/" replace />;
 };
 
 export default PrivateRoute;
