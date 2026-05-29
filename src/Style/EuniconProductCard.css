@@ -1,0 +1,96 @@
+.eunicon-card {
+  background: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.eunicon-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.eunicon-card-image-wrapper {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background-color: #fcfcfc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.eunicon-card-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.eunicon-card-details {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex-grow: 1;
+}
+
+.eunicon-card-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #111111;
+  margin: 0;
+  text-transform: capitalize;
+
+  /* Flexbox Friendly Truncation Rules */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+}
+
+.eunicon-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end; /* Aligns items perfectly with bottom line */
+  margin-top: auto; /* Pushes the footer area down using flex growth mechanics */
+}
+
+.eunicon-card-price-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.eunicon-card-price-old {
+  font-size: 12px;
+  color: #9c9c9c;
+  text-decoration: line-through;
+}
+
+.eunicon-card-price-current {
+  font-size: 15px;
+  font-weight: 700;
+  color: #ff4b4b;
+}
+
+.eunicon-card-buy-btn {
+  background-color: #7499ff;
+  color: #ffffff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.eunicon-card-buy-btn:hover {
+  background-color: #5c85ff;
+}

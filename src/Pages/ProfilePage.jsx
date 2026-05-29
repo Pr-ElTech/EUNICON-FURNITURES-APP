@@ -1,31 +1,46 @@
-import React, { useState } from "react";
-import { FiEdit2 } from "react-icons/fi";
+import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+import { FiEdit2, FiUser } from "react-icons/fi";
 import HeroHeader from "../Components/HeroHeader";
 import HeroFooter from "../Components/HeroFooter";
 import EditInfoModal from "../Components/EditInfoModal";
-import EditAddressModal from "../Components/EditAddress"; // Newly imported component hook
+import EditAddressModal from "../Components/EditAddress";
 import "../Style/ProfilePage.css";
-import EditAdress from "../Components/EditAddress";
-// import UserAvatarImg from "../Assets/user-avatar.jpg";
 
 const ProfilePage = () => {
-  // Separate Modal Control Switches
+  const { userDetail } = useSelector((state) => state.user);
+
+  const [profileData, setProfileData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    location: "",
+    country: "",
+    state: "",
+    postalCode: "",
+  });
+
+  useEffect(() => {
+    if (userDetail) {
+      setProfileData({
+        firstName: userDetail.firstName || "",
+        lastName: userDetail.lastName || "",
+        email: userDetail.email || "",
+        phone: userDetail.phoneNumber || "",
+        location: userDetail.state
+          ? `Lekki, ${userDetail.state}, Nigeria`
+          : "Lekki, Lagos, Nigeria",
+        country: "Nigeria",
+        state: userDetail.state || "",
+        postalCode: userDetail.postalCode || "100001",
+      });
+    }
+  }, [userDetail]);
+
   const [isInfoModalOpen, setIsInfoModalOpen] = useState(false);
   const [isAddressModalOpen, setIsAddressModalOpen] = useState(false);
 
-  // Consolidated User Profile Context State
-  const [profileData, setProfileData] = useState({
-    firstName: "Sonayon",
-    lastName: "Peculiar",
-    email: "peculiarsonayon01@gmail.com",
-    phone: "070 700 626 87",
-    location: "Lekki, Lagos, Nigeria",
-    country: "Nigeria",
-    state: "Lagos State",
-    postalCode: "100001",
-  });
-
-  // Handler for core biographical fields update
   const handleUpdateInfo = (updatedFields) => {
     setProfileData((prev) => ({
       ...prev,
@@ -33,14 +48,12 @@ const ProfilePage = () => {
     }));
   };
 
-  // Handler for address location grid values update
   const handleUpdateAddress = (updatedAddress) => {
     setProfileData((prev) => ({
       ...prev,
       country: updatedAddress.country,
       state: updatedAddress.state,
       postalCode: updatedAddress.postalCode,
-      // Keeps hero banner header summary in sync with state changes
       location: `Lekki, ${updatedAddress.state}, ${updatedAddress.country}`,
     }));
   };
@@ -50,12 +63,11 @@ const ProfilePage = () => {
       <HeroHeader />
 
       <main className="profile-main-content">
-        {/* ==========================================
-           CARD 1: MAIN USER IDENTITY BANNER
-           ========================================== */}
         <div className="profile-card hero-identity-card">
           <div className="avatar-frame">
-            <img src="={UserAvatarImg}" alt="User Avatar Display" />
+            <div className="avatar-icon-placeholder">
+              <FiUser size={40} />
+            </div>
           </div>
           <div className="identity-text-details">
             <h2>
@@ -65,9 +77,6 @@ const ProfilePage = () => {
           </div>
         </div>
 
-        {/* ==========================================
-           CARD 2: PERSONAL INFORMATION DISPLAY
-           ========================================== */}
         <div className="profile-card info-display-card">
           <div className="card-header-row">
             <h3>Personal Information</h3>
@@ -102,16 +111,13 @@ const ProfilePage = () => {
           </div>
         </div>
 
-        {/* ==========================================
-           CARD 3: ADDRESS SEGMENT PANEL
-           ========================================== */}
         <div className="profile-card info-display-card">
           <div className="card-header-row">
             <h3>Address</h3>
             <button
               type="button"
               className="section-edit-btn"
-              onClick={() => setIsAddressModalOpen(true)} // Now triggers address modal overlay
+              onClick={() => setIsAddressModalOpen(true)}
             >
               <FiEdit2 size={14} /> Edit
             </button>
@@ -132,7 +138,6 @@ const ProfilePage = () => {
 
       <HeroFooter />
 
-      {/* MODAL 1: Personal Profile Info Editing Portal */}
       <EditInfoModal
         isOpen={isInfoModalOpen}
         onClose={() => setIsInfoModalOpen(false)}
@@ -145,8 +150,7 @@ const ProfilePage = () => {
         onSave={handleUpdateInfo}
       />
 
-      {/* MODAL 2: Physical Shipping Address Editing Portal */}
-      <EditAdress
+      <EditAddressModal
         isOpen={isAddressModalOpen}
         onClose={() => setIsAddressModalOpen(false)}
         initialData={{

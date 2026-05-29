@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { TbError404 } from "react-icons/tb"; // Optional: adding a clean icon if you use react-icons
+import { TbError404 } from "react-icons/tb";
 import "../Style/PagenotFound.css";
 
 const PagenotFound = () => {

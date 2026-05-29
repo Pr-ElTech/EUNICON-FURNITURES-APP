@@ -2,41 +2,40 @@ import React, { useState, useEffect } from "react";
 import "../Style/Home.css";
 import HeroHeader from "../Components/HeroHeader";
 import Herofooter from "../Components/HeroFooter";
-import ProductCard from "../Components/ProductCard";
-
-// 1. Import your default core axios instance directly
+import EuniconProductCard from "../Components/EuniconProductCard";
 import axiosInstance from "./Config/AxiosInstance";
-
-// 2. Fixed the asset import syntax (uncommented and removed the stray "=" sign)
 import MainHeroBedImg from "../Assets/ProductChairHero.jpg";
+import Artisans from "../Components/Artisans";
 
 const Home = () => {
   const [allProducts, setAllProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  // 3. Fetch products inline directly from the endpoint
   useEffect(() => {
     const fetchProducts = async () => {
-      setIsLoading(true);
       try {
-        // Consuming the get all products endpoint directly
+        setIsLoading(true);
+
         const response = await axiosInstance.get("/allProduct");
 
-        // Extract the data array gracefully based on your backend response shape
+        // 💡 Add response.data.users here to read your backend key
         const productsData =
-          response.data.products || response.data.data || response.data || [];
+          response.data.users ||
+          response.data.products ||
+          response.data.data ||
+          [];
+
         setAllProducts(productsData);
+        setIsLoading(false);
       } catch (error) {
         console.error(
           "❌ Error fetching products directly on Home Page:",
           error,
         );
-        setAllProducts([]); // Fallback to an empty array to prevent mapping crashes
-      } finally {
+        setAllProducts([]);
         setIsLoading(false);
       }
     };
-
     fetchProducts();
   }, []);
 
@@ -71,12 +70,9 @@ const Home = () => {
             <p className="no-items">Loading products...</p>
           ) : allProducts && allProducts.length > 0 ? (
             allProducts
-              .slice(0, 8) // Limits view to the top 8 items on the landing page
+              .slice(0, 8)
               .map((product) => (
-                <ProductCard
-                  key={product._id || product.id}
-                  product={product}
-                />
+                <EuniconProductCard key={product._id} product={product} />
               ))
           ) : (
             <p className="no-items">Fresh design pieces arriving soon!</p>
@@ -170,6 +166,7 @@ const Home = () => {
             <p className="rating-stars-small">★★★★★</p>
           </div>
         </div>
+        <Artisans />
       </section>
 
       <Herofooter />

@@ -1,133 +1,160 @@
+/* Core Card Frame Design */
 .product-card {
   width: 100%;
-  max-width: 300px;
-  background-color: #ffffff;
-  font-family:
-    system-ui,
-    -apple-system,
-    sans-serif;
+  max-width: 360px;
+  background: #ffffff;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-radius: 12px;
-  box-sizing: border-box;
-  background-color: green;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  transition: transform 0.2s ease;
 }
 
-/* Container housing the product image */
-.product-image-container {
-  width: 100%;
-  height: 200px; /* Adjusted height slightly to look cleaner with full-bleed layout */
-  background-color: #142acf; /* Clean light background color fallback */
-  border-radius: 12px;
+/* Image Wrapper Layout */
+.card-image-wrapper {
   position: relative;
-  overflow: hidden; /* Keeps the image corners perfectly rounded inside the card */
-
-  .product-image {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: fill; /* Kept exactly as fill per your request */
-  }
+  width: 100%;
+  aspect-ratio: 1.48 / 1; /* Perfectly retains the rectangular landscape scale from your image */
+  border-radius: 14px;
+  overflow: hidden;
 }
 
-/* Forced full-bleed image alignment rules */
+.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: scale 0.4s ease;
+}
 
-/* Floating Wishlist Button */
-.wishlist-btn {
+.product-card:hover .product-image {
+  scale: 1.03;
+}
+
+/* Floating Wishlist Heart Icon Over Image */
+.wishlist-badge-btn {
   position: absolute;
-  top: 16px;
-  right: 16px;
-  background: #ffffff;
-  border: none;
-  border-radius: 50%;
+  top: 12px;
+  right: 12px;
   width: 32px;
   height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   cursor: pointer;
-  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.05);
-  z-index: 2; /* Ensures it floats safely over the full-bleed image background */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  transition: all 0.2s ease;
 }
 
-.heart-icon {
+.wishlist-icon {
   font-size: 20px;
-  color: #000000;
-}
-
-.heart-icon.active {
-  color: #ff3b30;
-}
-
-/* Title text structure */
-.product-title {
-  font-size: 16px;
-  font-weight: 500;
   color: #1a1a1a;
-  margin: 14px 0 6px 0;
-  text-align: left;
+  stroke-width: 0.5px;
 }
 
-/* Row wrapper separating prices and CTA buttons */
-.product-details-row {
+.wishlist-badge-btn:hover {
+  background: #ffffff;
+  transform: scale(1.05);
+}
+
+.wishlist-badge-btn.active .wishlist-icon {
+  color: #ff3b30;
+  fill: #ff3b30;
+}
+
+/* Text & Content Metadata Grid Layout */
+.card-info-content {
+  padding: 12px 2px 4px 2px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.product-title-text {
+  font-size: 15px;
+  font-weight: 500;
+  color: #1c1c1e;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Bottom Split Section Layout */
+.card-meta-action-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
+  gap: 8px;
 }
 
-/* Pricing typography */
-.price-box {
+/* Pricing Section Rules */
+.price-stack-block {
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
-.old-price {
-  font-size: 14px;
-  color: #9c9c9c;
+.slashed-old-price {
+  font-size: 13px;
+  color: #8e8e93;
   text-decoration: line-through;
 }
 
-.current-price {
+.active-current-price {
   font-size: 15px;
   font-weight: 600;
-  color: #bd1c1c;
+  color: #ff3b30; /* Bright red text format matching reference */
 }
 
-/* Right-aligned action buttons container */
-.action-box {
+/* Right-side Operational Call To Actions */
+.interactive-actions-wrapper {
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
-.cart-icon-btn {
-  background: none;
+.icon-cart-trigger {
+  background: transparent;
   border: none;
-  font-size: 22px;
-  color: #4f73df;
-  cursor: pointer;
+  padding: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s ease;
 }
 
-/* Native styling for your custom BlogBtn element */
-.buy-now-btn {
-  background-color: #6c91ec;
+.cart-action-icon {
+  font-size: 22px;
+  color: #7ea4f4; /* Cornflower blue tone matching your icons */
+}
+
+.icon-cart-trigger:hover {
+  transform: scale(1.08);
+}
+
+/* Solid Transactional Action Button styling */
+.solid-buy-now-btn {
+  background-color: #7ea4f4; /* Matches the custom blue action color perfectly */
   color: #ffffff;
   border: none;
-  padding: 8px 24px;
   font-size: 14px;
   font-weight: 600;
-  border-radius: 6px;
+  padding: 8px 24px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.2s ease-in-out;
+  transition:
+    background-color 0.2s ease,
+    transform 0.1s ease;
 }
 
-.buy-now-btn:hover {
-  background-color: #5579d6;
+.solid-buy-now-btn:hover {
+  background-color: #638ce6;
+}
+
+.solid-buy-now-btn:active {
+  transform: scale(0.98);
 }

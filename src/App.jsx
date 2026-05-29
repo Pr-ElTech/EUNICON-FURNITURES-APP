@@ -1,12 +1,12 @@
 import React from "react";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
+import PrivateRoute from "./Routes/PrivateRoute";
 import Home from "./Pages/Home";
 import Login from "./Pages/Login";
 import Blog from "./Pages/Blog";
-import PrivateRoute from "./Routes/PrivateRoute";
 import About from "./Pages/About";
 import SignupPage from "./Pages/SignupPage";
-import CategoryPage from "./Pages/CategoryPage";
+import CollectionPage from "./Pages/CollectionPage";
 import Service from "./Pages/Service";
 import ServiceAbout from "./Pages/ServiceAbout";
 import ServicePortfolio from "./Pages/ServicePortfolio";
@@ -18,7 +18,6 @@ import FurnitureAbout from "./Pages/FurnitureAbout";
 import FurniturePortfolio from "./Pages/FurniturePortfolio";
 import CustomFurniturePage from "./Components/CustomFurniturePage";
 import ProfessionalCard from "./Components/ProfessionalCard";
-// import PrivateRoute from "./Routes/PrivateRoute";
 import ConfirmationPage from "./Components/ConfirmationPage";
 import WatchList from "./Pages/WatchList";
 import ProductDetail from "./Components/ProductDetail";
@@ -27,35 +26,29 @@ import EditInfoModal from "./Components/EditInfoModal";
 import EditAdress from "./Components/EditAddress";
 import CartPage from "./Pages/CartPage";
 import CheckoutPage from "./Pages/CheckoutPage";
+import PagenotFound from "./Pages/PagenotFound";
+import ArtisanProfile from "./Components/ArtisanProfilePage";
 
 const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Public Authentication Routes */}
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<SignupPage />} />
 
-        {/* 
-          Root Redirection: If users hit "/" it safely sends them to "/home".
-          If they aren't logged in, PrivateRoute inside "/home" handles the kick-back to login.
-        */}
         <Route path="/" element={<Navigate to="/home" replace />} />
 
-        {/* Public Content Routes */}
         <Route path="/about" element={<About />} />
         <Route path="/blog" element={<Blog />} />
-        {/* Uniformly low-cased utility paths */}
-        <Route path="/checkout" element={<CheckoutPage />} />
         <Route path="/professional-card" element={<ProfessionalCard />} />
+        <Route path="/ArtisanProfle" element={<ArtisanProfile />} />
 
-        {/* Protected Application Routes */}
         <Route
           path="/home"
           element={
-            <PrivateRoute>
-              <Home />
-            </PrivateRoute>
+            // <PrivateRoute>
+            <Home />
+            // </PrivateRoute>
           }
         />
         <Route
@@ -66,12 +59,19 @@ const App = () => {
             </PrivateRoute>
           }
         />
-        {/* Alias path to handle both variations seamlessly */}
         <Route
           path="/addtocart"
           element={
             <PrivateRoute>
               <Navigate to="/cart" replace />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/checkout"
+          element={
+            <PrivateRoute>
+              <CheckoutPage />
             </PrivateRoute>
           }
         />
@@ -107,16 +107,16 @@ const App = () => {
             </PrivateRoute>
           }
         />
+
         <Route
           path="/category/:categoryId"
           element={
             <PrivateRoute>
-              <CategoryPage />
+              <CollectionPage />
             </PrivateRoute>
           }
         />
 
-        {/* Core Dedicated Services Pages */}
         <Route
           path="/custom-furniture"
           element={
@@ -142,7 +142,6 @@ const App = () => {
           }
         />
 
-        {/* Auxiliary Portfolio / Profile Modals */}
         <Route
           path="/service-about"
           element={
@@ -215,6 +214,11 @@ const App = () => {
             </PrivateRoute>
           }
         />
+
+        {/* =========================================================
+            CATCH-ALL FALLBACK ROUTE (Must stay at the very bottom)
+           ========================================================= */}
+        <Route path="*" element={<PagenotFound />} />
       </Routes>
     </BrowserRouter>
   );

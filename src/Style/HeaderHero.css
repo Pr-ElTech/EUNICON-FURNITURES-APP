@@ -11,11 +11,11 @@
   z-index: 1000;
   font-family: sans-serif;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
   .header-Wrapper {
     width: 90%;
     height: 100%;
     display: flex;
-    /* background-color: gold; */
     align-items: center;
     justify-content: space-between;
 
@@ -62,7 +62,6 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        /* padding: 10px; */
         z-index: 1000;
       }
 
@@ -163,9 +162,42 @@
       }
     }
   }
+
+  /* ==========================================================================
+     FIXED RESPONSIVE MOBILE MEDIA QUERY
+     ========================================================================== */
+  @media screen and (max-width: 991px) {
+    .header-Wrapper {
+      width: 95%; /* Expands slightly on mobile to maximize horizontal space */
+
+      .header-left-logo {
+        width: auto; /* Stops logo from forcing an artificial 20% desktop footprint */
+        justify-content: flex-start;
+      }
+
+      /* Hides the nav array center container safely */
+      .header-center {
+        display: none !important;
+      }
+
+      .header-right {
+        width: auto; /* Clears out desktop 30% footprint width */
+        gap: 12px; /* Slightly tighter spacing layout for smaller screens */
+
+        .Profile-Bar {
+          width: auto;
+          padding: 0 12px; /* Changes explicit width to fluid internal padding */
+
+          span {
+            display: none; /* Safely hides name text to keep user profile pill clean */
+          }
+        }
+      }
+    }
+  }
 }
+
 .Icon {
   width: 20px;
   height: 30px;
-  /* color: aqua; */
 }
