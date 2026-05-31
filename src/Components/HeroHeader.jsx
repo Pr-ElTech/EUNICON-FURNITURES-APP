@@ -95,6 +95,7 @@ const HeroHeader = () => {
               </div>
               <CiSearch className="Icon" />
               <CiHeart
+                style={{ cursor: "pointer" }}
                 className="Icon"
                 onClick={() => navigate("/watchlist")}
               />
